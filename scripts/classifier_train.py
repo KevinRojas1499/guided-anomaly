@@ -29,7 +29,8 @@ def main():
     args = create_argparser().parse_args()
 
     dist_util.setup_dist()
-    logger.configure()
+    print(args.log_dir)
+    logger.configure(args.log_dir)
 
     logger.log("creating model and diffusion...")
     model, diffusion = create_classifier_and_diffusion(
@@ -174,7 +175,10 @@ def set_annealed_lr(opt, base_lr, frac_done):
 
 
 def save_model(mp_trainer, opt, step):
+    print(f'Trying to save {logger.get_dir()}')
+    
     if dist.get_rank() == 0:
+        print(logger.get_dir())
         th.save(
             mp_trainer.master_params_to_state_dict(mp_trainer.master_params),
             os.path.join(logger.get_dir(), f"model{step:06d}.pt"),
@@ -214,10 +218,11 @@ def create_argparser():
         resume_checkpoint="",
         log_interval=10,
         eval_interval=5,
-        save_interval=10000,
+        save_interval=100,
     )
     defaults.update(classifier_and_diffusion_defaults())
     parser = argparse.ArgumentParser()
+    parser.add_argument('--log_dir',type=str)
     add_dict_to_argparser(parser, defaults)
     return parser
 

@@ -1,0 +1,5 @@
+1. conda create --name guided python=3.8
+2. pip install -e .
+pip install numpy 
+pip install pillow
+pip install mpi4py
