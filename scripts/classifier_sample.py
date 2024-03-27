@@ -25,10 +25,10 @@ from guided_diffusion.script_util import (
 
 def main():
     args = create_argparser().parse_args()
-
+    print("HERE IN MAIN")
     dist_util.setup_dist()
-    logger.configure()
-
+    logger.configure(args.log_dir)
+    print("PRINTING")
     logger.log("creating model and diffusion...")
     model, diffusion = create_model_and_diffusion(
         **args_to_dict(args, model_and_diffusion_defaults().keys())
@@ -123,6 +123,7 @@ def create_argparser():
     defaults.update(model_and_diffusion_defaults())
     defaults.update(classifier_defaults())
     parser = argparse.ArgumentParser()
+    parser.add_argument('--log_dir',type=str)
     add_dict_to_argparser(parser, defaults)
     return parser
 
