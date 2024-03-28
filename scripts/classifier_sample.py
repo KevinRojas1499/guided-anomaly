@@ -25,10 +25,8 @@ from guided_diffusion.script_util import (
 
 def main():
     args = create_argparser().parse_args()
-    print("HERE IN MAIN")
     dist_util.setup_dist()
     logger.configure(args.log_dir)
-    print("PRINTING")
     logger.log("creating model and diffusion...")
     model, diffusion = create_model_and_diffusion(
         **args_to_dict(args, model_and_diffusion_defaults().keys())
@@ -67,11 +65,13 @@ def main():
     logger.log("sampling...")
     all_images = []
     all_labels = []
+    print(f' Numberr of classes {NUM_CLASSES}')
     while len(all_images) * args.batch_size < args.num_samples:
         model_kwargs = {}
         classes = th.randint(
             low=0, high=NUM_CLASSES, size=(args.batch_size,), device=dist_util.dev()
         )
+        print(f'Selected classes {classes.cpu().detach().numpy()}')
         model_kwargs["y"] = classes
         sample_fn = (
             diffusion.p_sample_loop if not args.use_ddim else diffusion.ddim_sample_loop
