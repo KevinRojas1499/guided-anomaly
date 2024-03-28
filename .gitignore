@@ -3,12 +3,9 @@ __pycache__/
 classify_image_graph_def.pb
 OCT_DATA
 *.jpeg
-<<<<<<< Updated upstream
 
 
-=======
 *.pt
 *.edu
 checkpoints/
 logging/
->>>>>>> Stashed changes
