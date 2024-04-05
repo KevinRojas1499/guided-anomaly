@@ -591,6 +591,7 @@ class GaussianDiffusion:
         t,
         clip_denoised=True,
         denoised_fn=None,
+        cond_fn=None, #Adding this for ease of use, it should always be None
         model_kwargs=None,
         eta=0.0,
     ):
@@ -626,7 +627,7 @@ class GaussianDiffusion:
         self,
         model,
         shape,
-        noise=None,
+        initial_cond=None,
         clip_denoised=True,
         denoised_fn=None,
         cond_fn=None,
@@ -634,6 +635,7 @@ class GaussianDiffusion:
         device=None,
         progress=False,
         eta=0.0,
+        reverse=False
     ):
         """
         Generate samples from the model using DDIM.
@@ -644,7 +646,7 @@ class GaussianDiffusion:
         for sample in self.ddim_sample_loop_progressive(
             model,
             shape,
-            noise=noise,
+            initial_cond=initial_cond,
             clip_denoised=clip_denoised,
             denoised_fn=denoised_fn,
             cond_fn=cond_fn,
@@ -652,6 +654,7 @@ class GaussianDiffusion:
             device=device,
             progress=progress,
             eta=eta,
+            reverse=reverse
         ):
             final = sample
         return final["sample"]
@@ -660,7 +663,7 @@ class GaussianDiffusion:
         self,
         model,
         shape,
-        noise=None,
+        initial_cond=None,
         clip_denoised=True,
         denoised_fn=None,
         cond_fn=None,
@@ -668,6 +671,7 @@ class GaussianDiffusion:
         device=None,
         progress=False,
         eta=0.0,
+        reverse=False
     ):
         """
         Use DDIM to sample from the model and yield intermediate samples from
@@ -678,22 +682,24 @@ class GaussianDiffusion:
         if device is None:
             device = next(model.parameters()).device
         assert isinstance(shape, (tuple, list))
-        if noise is not None:
-            img = noise
+        if initial_cond is not None:
+            img = initial_cond
         else:
             img = th.randn(*shape, device=device)
         indices = list(range(self.num_timesteps))[::-1]
+        if reverse:
+            indices = indices[::-1]
 
         if progress:
             # Lazy import so that we don't depend on tqdm.
             from tqdm.auto import tqdm
 
             indices = tqdm(indices)
-
+        sample_fn = self.ddim_reverse_sample if reverse else self.ddim_sample
         for i in indices:
             t = th.tensor([i] * shape[0], device=device)
             with th.no_grad():
-                out = self.ddim_sample(
+                out = sample_fn(
                     model,
                     img,
                     t,
