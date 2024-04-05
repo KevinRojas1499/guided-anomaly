@@ -71,7 +71,7 @@ def main():
     while len(all_images) * args.batch_size < args.num_samples:
         model_kwargs = {}
 
-        healthy_images = np.load('images/samples_healthy.npz')['arr_0']
+        healthy_images = np.load(args.diseased_images_path)['arr_0']
         healthy_images = th.tensor(healthy_images, device=dist_util.dev()
                                    ,dtype=th.float).permute(0,3,1,2)
         healthy_images = (healthy_images/127.5 - 1)
@@ -85,7 +85,7 @@ def main():
             initial_cond=healthy_images,
             reverse=True
         )
-        classes = th.ones(size=(healthy_images.shape[0],), device=dist_util.dev(),dtype=th.long) * 3 # This 3 is hardcoding healthy
+        classes = th.ones(size=(args.batch_size,), device=dist_util.dev(),dtype=th.long) * 3 # This 3 is hardcoding healthy
         print(f'Selected classes {classes.cpu().detach().numpy()}')
         model_kwargs["y"] = classes
 
@@ -110,13 +110,14 @@ def main():
         dist.all_gather(gathered_labels, classes)
         all_labels.extend([labels.cpu().numpy() for labels in gathered_labels])
         # logger.log(f"created {len(all_images) * args.batch_size} samples")
+        break
 
     arr = np.concatenate(all_images, axis=0)
     label_arr = np.concatenate(all_labels, axis=0)
     label_arr = label_arr[: args.num_samples]
     if dist.get_rank() == 0:
         shape_str = "x".join([str(x) for x in arr.shape])
-        out_path = os.path.join(logger.get_dir(), f"samples_{shape_str}.npz")
+        out_path = os.path.join(logger.get_dir(), f"{args.healthy_images_file_name}.npz")
         logger.log(f"saving to {out_path}")
         np.savez(out_path, arr, label_arr)
 
@@ -138,6 +139,8 @@ def create_argparser():
     defaults.update(classifier_defaults())
     parser = argparse.ArgumentParser()
     parser.add_argument('--log_dir',type=str)
+    parser.add_argument('--diseased_images_path',type=str)
+    parser.add_argument('--healthy_images_file_name',type=str)
     add_dict_to_argparser(parser, defaults)
     return parser
 
