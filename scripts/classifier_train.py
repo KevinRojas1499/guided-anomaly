@@ -218,7 +218,7 @@ def create_argparser():
         resume_checkpoint="",
         log_interval=10,
         eval_interval=5,
-        save_interval=100,
+        save_interval=1000,
     )
     defaults.update(classifier_and_diffusion_defaults())
     parser = argparse.ArgumentParser()
