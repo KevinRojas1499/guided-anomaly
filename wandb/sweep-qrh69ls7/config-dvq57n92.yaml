@@ -1,0 +1,10 @@
+wandb_version: 1
+
+classifier_attention_resolutions:
+  value: 16,8
+classifier_depth:
+  value: 4
+lr:
+  value: 0.00023339744663163092
+weight_decay:
+  value: 0.01

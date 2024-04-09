@@ -1,0 +1,156 @@
+Namespace(anneal_lr=True, batch_size=32, classifier_attention_resolutions='16,8', classifier_depth=2, classifier_pool='attention', classifier_resblock_updown=True, classifier_use_fp16=False, classifier_use_scale_shift_norm=True, classifier_width=128, data_dir='./Preprocessed/train', diffusion_steps=1000, eval_interval=5, image_size=128, iterations=100, learn_sigma=False, log_dir='./checkpoints', log_interval=10, lr=0.0003, microbatch=-1, noise_schedule='linear', noised=True, predict_xstart=False, rescale_learned_sigmas=False, rescale_timesteps=False, resume_checkpoint='', save_interval=100, schedule_sampler='uniform', timestep_respacing='', use_kl=False, val_data_dir='', weight_decay=0.05)
+Namespace(anneal_lr=True, batch_size=32, classifier_attention_resolutions='32,16', classifier_depth=4, classifier_pool='attention', classifier_resblock_updown=True, classifier_use_fp16=False, classifier_use_scale_shift_norm=True, classifier_width=128, data_dir='./Preprocessed/train', diffusion_steps=1000, eval_interval=5, image_size=128, iterations=100, learn_sigma=False, log_dir='./checkpoints', log_interval=10, lr=0.0003062905271404269, microbatch=-1, noise_schedule='linear', noised=True, predict_xstart=False, rescale_learned_sigmas=False, rescale_timesteps=False, resume_checkpoint='', save_interval=100, schedule_sampler='uniform', timestep_respacing='', use_kl=False, val_data_dir='', weight_decay=0.1)
+./checkpoints
+Logging to ./checkpoints
+creating model and diffusion...
+creating data loader...
+creating optimizer...
+training classifier model...
+-----------------------------
+| grad_norm      | 160      |
+| param_norm     | 175      |
+| samples        | 32       |
+| step           | 0        |
+| train_acc@1    | 0        |
+| train_acc@1_q0 | 0        |
+| train_acc@1_q1 | 0        |
+| train_acc@1_q2 | 0        |
+| train_acc@1_q3 | 0        |
+| train_acc@5    | 0        |
+| train_acc@5_q0 | 0        |
+| train_acc@5_q1 | 0        |
+| train_acc@5_q2 | 0        |
+| train_acc@5_q3 | 0        |
+| train_loss     | 6.97     |
+| train_loss_q0  | 6.94     |
+| train_loss_q1  | 6.93     |
+| train_loss_q2  | 6.99     |
+| train_loss_q3  | 6.98     |
+-----------------------------
+-----------------------------
+| grad_norm      | 7.8      |
+| param_norm     | 175      |
+| samples        | 352      |
+| step           | 10       |
+| train_acc@1    | 0.241    |
+| train_acc@1_q0 | 0.217    |
+| train_acc@1_q1 | 0.239    |
+| train_acc@1_q2 | 0.262    |
+| train_acc@1_q3 | 0.25     |
+| train_acc@5    | 1        |
+| train_acc@5_q0 | 1        |
+| train_acc@5_q1 | 1        |
+| train_acc@5_q2 | 1        |
+| train_acc@5_q3 | 1        |
+| train_loss     | 3.3      |
+| train_loss_q0  | 3.43     |
+| train_loss_q1  | 3.22     |
+| train_loss_q2  | 3.28     |
+| train_loss_q3  | 3.27     |
+-----------------------------
+-----------------------------
+| grad_norm      | 9.73     |
+| param_norm     | 175      |
+| samples        | 672      |
+| step           | 20       |
+| train_acc@1    | 0.284    |
+| train_acc@1_q0 | 0.282    |
+| train_acc@1_q1 | 0.287    |
+| train_acc@1_q2 | 0.325    |
+| train_acc@1_q3 | 0.236    |
+| train_acc@5    | 1        |
+| train_acc@5_q0 | 1        |
+| train_acc@5_q1 | 1        |
+| train_acc@5_q2 | 1        |
+| train_acc@5_q3 | 1        |
+| train_loss     | 1.46     |
+| train_loss_q0  | 1.48     |
+| train_loss_q1  | 1.49     |
+| train_loss_q2  | 1.42     |
+| train_loss_q3  | 1.48     |
+-----------------------------
+-----------------------------
+| grad_norm      | 8.1      |
+| param_norm     | 175      |
+| samples        | 992      |
+| step           | 30       |
+| train_acc@1    | 0.241    |
+| train_acc@1_q0 | 0.224    |
+| train_acc@1_q1 | 0.293    |
+| train_acc@1_q2 | 0.277    |
+| train_acc@1_q3 | 0.172    |
+| train_acc@5    | 1        |
+| train_acc@5_q0 | 1        |
+| train_acc@5_q1 | 1        |
+| train_acc@5_q2 | 1        |
+| train_acc@5_q3 | 1        |
+| train_loss     | 1.43     |
+| train_loss_q0  | 1.46     |
+| train_loss_q1  | 1.39     |
+| train_loss_q2  | 1.38     |
+| train_loss_q3  | 1.49     |
+-----------------------------
+-----------------------------
+| grad_norm      | 6.89     |
+| param_norm     | 175      |
+| samples        | 1.31e+03 |
+| step           | 40       |
+| train_acc@1    | 0.269    |
+| train_acc@1_q0 | 0.291    |
+| train_acc@1_q1 | 0.296    |
+| train_acc@1_q2 | 0.205    |
+| train_acc@1_q3 | 0.283    |
+| train_acc@5    | 1        |
+| train_acc@5_q0 | 1        |
+| train_acc@5_q1 | 1        |
+| train_acc@5_q2 | 1        |
+| train_acc@5_q3 | 1        |
+| train_loss     | 1.43     |
+| train_loss_q0  | 1.41     |
+| train_loss_q1  | 1.41     |
+| train_loss_q2  | 1.45     |
+| train_loss_q3  | 1.45     |
+-----------------------------
+-----------------------------
+| grad_norm      | 6.76     |
+| param_norm     | 175      |
+| samples        | 1.63e+03 |
+| step           | 50       |
+| train_acc@1    | 0.216    |
+| train_acc@1_q0 | 0.23     |
+| train_acc@1_q1 | 0.135    |
+| train_acc@1_q2 | 0.232    |
+| train_acc@1_q3 | 0.256    |
+| train_acc@5    | 1        |
+| train_acc@5_q0 | 1        |
+| train_acc@5_q1 | 1        |
+| train_acc@5_q2 | 1        |
+| train_acc@5_q3 | 1        |
+| train_loss     | 1.44     |
+| train_loss_q0  | 1.4      |
+| train_loss_q1  | 1.45     |
+| train_loss_q2  | 1.44     |
+| train_loss_q3  | 1.46     |
+-----------------------------
+-----------------------------
+| grad_norm      | 5.17     |
+| param_norm     | 175      |
+| samples        | 1.95e+03 |
+| step           | 60       |
+| train_acc@1    | 0.253    |
+| train_acc@1_q0 | 0.333    |
+| train_acc@1_q1 | 0.247    |
+| train_acc@1_q2 | 0.207    |
+| train_acc@1_q3 | 0.244    |
+| train_acc@5    | 1        |
+| train_acc@5_q0 | 1        |
+| train_acc@5_q1 | 1        |
+| train_acc@5_q2 | 1        |
+| train_acc@5_q3 | 1        |
+| train_loss     | 1.41     |
+| train_loss_q0  | 1.39     |
+| train_loss_q1  | 1.41     |
+| train_loss_q2  | 1.42     |
+| train_loss_q3  | 1.42     |
+-----------------------------
+wandb: Ctrl + C detected. Stopping sweep.

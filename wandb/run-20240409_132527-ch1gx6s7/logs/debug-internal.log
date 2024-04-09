@@ -1,0 +1,531 @@
+2024-04-09 13:25:27,700 INFO    StreamThr :3030313 [internal.py:wandb_internal():86] W&B internal server running at pid: 3030313, started at: 2024-04-09 13:25:27.699227
+2024-04-09 13:25:27,702 DEBUG   HandlerThread:3030313 [handler.py:handle_request():146] handle_request: status
+2024-04-09 13:25:27,716 INFO    WriterThread:3030313 [datastore.py:open_for_write():87] open: /home/feolalab/Desktop/guided-anomaly/wandb/run-20240409_132527-ch1gx6s7/run-ch1gx6s7.wandb
+2024-04-09 13:25:27,717 DEBUG   SenderThread:3030313 [sender.py:send():379] send: header
+2024-04-09 13:25:27,736 DEBUG   SenderThread:3030313 [sender.py:send():379] send: run
+2024-04-09 13:25:27,908 INFO    SenderThread:3030313 [dir_watcher.py:__init__():211] watching files in: /home/feolalab/Desktop/guided-anomaly/wandb/run-20240409_132527-ch1gx6s7/files
+2024-04-09 13:25:27,908 INFO    SenderThread:3030313 [sender.py:_start_run_threads():1124] run started: ch1gx6s7 with start time 1712683527.699221
+2024-04-09 13:25:28,019 DEBUG   HandlerThread:3030313 [handler.py:handle_request():146] handle_request: check_version
+2024-04-09 13:25:28,020 DEBUG   SenderThread:3030313 [sender.py:send_request():406] send_request: check_version
+2024-04-09 13:25:28,096 DEBUG   HandlerThread:3030313 [handler.py:handle_request():146] handle_request: run_start
+2024-04-09 13:25:28,108 DEBUG   HandlerThread:3030313 [system_info.py:__init__():26] System info init
+2024-04-09 13:25:28,108 DEBUG   HandlerThread:3030313 [system_info.py:__init__():41] System info init done
+2024-04-09 13:25:28,109 INFO    HandlerThread:3030313 [system_monitor.py:start():194] Starting system monitor
+2024-04-09 13:25:28,109 INFO    SystemMonitor:3030313 [system_monitor.py:_start():158] Starting system asset monitoring threads
+2024-04-09 13:25:28,110 INFO    HandlerThread:3030313 [system_monitor.py:probe():214] Collecting system info
+2024-04-09 13:25:28,110 INFO    SystemMonitor:3030313 [interfaces.py:start():190] Started cpu monitoring
+2024-04-09 13:25:28,112 INFO    SystemMonitor:3030313 [interfaces.py:start():190] Started disk monitoring
+2024-04-09 13:25:28,114 INFO    SystemMonitor:3030313 [interfaces.py:start():190] Started gpu monitoring
+2024-04-09 13:25:28,115 INFO    SystemMonitor:3030313 [interfaces.py:start():190] Started memory monitoring
+2024-04-09 13:25:28,116 INFO    SystemMonitor:3030313 [interfaces.py:start():190] Started network monitoring
+2024-04-09 13:25:28,135 DEBUG   HandlerThread:3030313 [system_info.py:probe():150] Probing system
+2024-04-09 13:25:28,144 DEBUG   HandlerThread:3030313 [system_info.py:_probe_git():135] Probing git
+2024-04-09 13:25:28,165 DEBUG   HandlerThread:3030313 [system_info.py:_probe_git():143] Probing git done
+2024-04-09 13:25:28,166 DEBUG   HandlerThread:3030313 [system_info.py:probe():198] Probing system done
+2024-04-09 13:25:28,166 DEBUG   HandlerThread:3030313 [system_monitor.py:probe():223] {'os': 'Linux-5.14.0-1051-oem-x86_64-with-glibc2.10', 'python': '3.8.0', 'heartbeatAt': '2024-04-09T17:25:28.135592', 'startedAt': '2024-04-09T17:25:27.682039', 'docker': None, 'cuda': None, 'args': ('--data_dir', './Preprocessed/train', '--iterations', '100', '--anneal_lr', 'True', '--batch_size', '32', '--lr', '3e-4', '--save_interval', '100', '--weight_decay', '0.05', '--image_size', '128', '--classifier_attention_resolutions', '16,8', '--classifier_depth', '2', '--classifier_width', '128', '--classifier_pool', 'attention', '--classifier_resblock_updown', 'True', '--classifier_use_scale_shift_norm', 'True', '--log_dir', './checkpoints'), 'state': 'running', 'program': 'scripts/classifier_train_wandb.py', 'codePathLocal': 'scripts/classifier_train_wandb.py', 'codePath': 'scripts/classifier_train_wandb.py', 'git': {'remote': 'https://github.com/KevinRojas1499/guided-anomaly.git', 'commit': 'f1412ca8e145b222e5d75bcde93afdefb54a5fa5'}, 'email': 'grodrguez3@gatech.edu', 'root': '/home/feolalab/Desktop/guided-anomaly', 'host': 'SOMOPH157', 'username': 'feolalab', 'executable': '/home/feolalab/anaconda3/envs/guided-anomaly/bin/python', 'cpu_count': 8, 'cpu_count_logical': 16, 'cpu_freq': {'current': 3.3999999999999995, 'min': 1200.0, 'max': 4575.0}, 'cpu_freq_per_core': [{'current': 1.199, 'min': 1200.0, 'max': 4600.0}, {'current': 1.2, 'min': 1200.0, 'max': 4500.0}, {'current': 3.9, 'min': 1200.0, 'max': 4600.0}, {'current': 3.9, 'min': 1200.0, 'max': 4700.0}, {'current': 3.9, 'min': 1200.0, 'max': 4500.0}, {'current': 3.9, 'min': 1200.0, 'max': 4500.0}, {'current': 3.9, 'min': 1200.0, 'max': 4500.0}, {'current': 1.299, 'min': 1200.0, 'max': 4700.0}, {'current': 3.9, 'min': 1200.0, 'max': 4600.0}, {'current': 3.9, 'min': 1200.0, 'max': 4500.0}, {'current': 3.9, 'min': 1200.0, 'max': 4600.0}, {'current': 3.9, 'min': 1200.0, 'max': 4700.0}, {'current': 3.9, 'min': 1200.0, 'max': 4500.0}, {'current': 3.9, 'min': 1200.0, 'max': 4500.0}, {'current': 3.9, 'min': 1200.0, 'max': 4500.0}, {'current': 3.9, 'min': 1200.0, 'max': 4700.0}], 'disk': {'/': {'total': 929.2031478881836, 'used': 459.49028396606445}}, 'gpu': 'Quadro RTX 8000', 'gpu_count': 2, 'gpu_devices': [{'name': 'Quadro RTX 8000', 'memory_total': 51539607552}, {'name': 'Quadro RTX 8000', 'memory_total': 51539607552}], 'memory': {'total': 62.50167465209961}}
+2024-04-09 13:25:28,166 INFO    HandlerThread:3030313 [system_monitor.py:probe():224] Finished collecting system info
+2024-04-09 13:25:28,166 INFO    HandlerThread:3030313 [system_monitor.py:probe():227] Publishing system info
+2024-04-09 13:25:28,166 DEBUG   HandlerThread:3030313 [system_info.py:_save_conda():207] Saving list of conda packages installed into the current environment
+2024-04-09 13:25:28,912 INFO    Thread-12 :3030313 [dir_watcher.py:_on_file_created():271] file/dir created: /home/feolalab/Desktop/guided-anomaly/wandb/run-20240409_132527-ch1gx6s7/files/conda-environment.yaml
+2024-04-09 13:25:31,244 DEBUG   HandlerThread:3030313 [system_info.py:_save_conda():222] Saving conda packages done
+2024-04-09 13:25:31,245 INFO    HandlerThread:3030313 [system_monitor.py:probe():229] Finished publishing system info
+2024-04-09 13:25:31,253 DEBUG   SenderThread:3030313 [sender.py:send():379] send: files
+2024-04-09 13:25:31,253 INFO    SenderThread:3030313 [sender.py:_save_file():1390] saving file wandb-metadata.json with policy now
+2024-04-09 13:25:31,440 DEBUG   HandlerThread:3030313 [handler.py:handle_request():146] handle_request: python_packages
+2024-04-09 13:25:31,440 DEBUG   HandlerThread:3030313 [handler.py:handle_request():146] handle_request: stop_status
+2024-04-09 13:25:31,441 DEBUG   SenderThread:3030313 [sender.py:send_request():406] send_request: python_packages
+2024-04-09 13:25:31,441 DEBUG   SenderThread:3030313 [sender.py:send_request():406] send_request: stop_status
+2024-04-09 13:25:31,444 DEBUG   HandlerThread:3030313 [handler.py:handle_request():146] handle_request: internal_messages
+2024-04-09 13:25:31,508 DEBUG   SenderThread:3030313 [sender.py:send():379] send: telemetry
+2024-04-09 13:25:31,765 INFO    wandb-upload_0:3030313 [upload_job.py:push():131] Uploaded file /tmp/tmprom6n0ldwandb/rru49j6t-wandb-metadata.json
+2024-04-09 13:25:31,911 INFO    Thread-12 :3030313 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/feolalab/Desktop/guided-anomaly/wandb/run-20240409_132527-ch1gx6s7/files/conda-environment.yaml
+2024-04-09 13:25:31,911 INFO    Thread-12 :3030313 [dir_watcher.py:_on_file_created():271] file/dir created: /home/feolalab/Desktop/guided-anomaly/wandb/run-20240409_132527-ch1gx6s7/files/wandb-metadata.json
+2024-04-09 13:25:31,911 INFO    Thread-12 :3030313 [dir_watcher.py:_on_file_created():271] file/dir created: /home/feolalab/Desktop/guided-anomaly/wandb/run-20240409_132527-ch1gx6s7/files/requirements.txt
+2024-04-09 13:25:31,912 INFO    Thread-12 :3030313 [dir_watcher.py:_on_file_created():271] file/dir created: /home/feolalab/Desktop/guided-anomaly/wandb/run-20240409_132527-ch1gx6s7/files/output.log
+2024-04-09 13:25:33,511 DEBUG   HandlerThread:3030313 [handler.py:handle_request():146] handle_request: status_report
+2024-04-09 13:25:33,911 INFO    Thread-12 :3030313 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/feolalab/Desktop/guided-anomaly/wandb/run-20240409_132527-ch1gx6s7/files/output.log
+2024-04-09 13:25:35,912 INFO    Thread-12 :3030313 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/feolalab/Desktop/guided-anomaly/wandb/run-20240409_132527-ch1gx6s7/files/output.log
+2024-04-09 13:25:37,212 DEBUG   HandlerThread:3030313 [handler.py:handle_request():146] handle_request: partial_history
+2024-04-09 13:25:37,214 DEBUG   SenderThread:3030313 [sender.py:send():379] send: history
+2024-04-09 13:25:37,214 DEBUG   SenderThread:3030313 [sender.py:send_request():406] send_request: summary_record
+2024-04-09 13:25:37,214 INFO    SenderThread:3030313 [sender.py:_save_file():1390] saving file wandb-summary.json with policy end
+2024-04-09 13:25:37,913 INFO    Thread-12 :3030313 [dir_watcher.py:_on_file_created():271] file/dir created: /home/feolalab/Desktop/guided-anomaly/wandb/run-20240409_132527-ch1gx6s7/files/wandb-summary.json
+2024-04-09 13:25:38,597 DEBUG   HandlerThread:3030313 [handler.py:handle_request():146] handle_request: partial_history
+2024-04-09 13:25:38,598 DEBUG   SenderThread:3030313 [sender.py:send():379] send: history
+2024-04-09 13:25:38,599 DEBUG   SenderThread:3030313 [sender.py:send_request():406] send_request: summary_record
+2024-04-09 13:25:38,601 DEBUG   HandlerThread:3030313 [handler.py:handle_request():146] handle_request: status_report
+2024-04-09 13:25:38,603 INFO    SenderThread:3030313 [sender.py:_save_file():1390] saving file wandb-summary.json with policy end
+2024-04-09 13:25:38,914 INFO    Thread-12 :3030313 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/feolalab/Desktop/guided-anomaly/wandb/run-20240409_132527-ch1gx6s7/files/wandb-summary.json
+2024-04-09 13:25:39,638 DEBUG   HandlerThread:3030313 [handler.py:handle_request():146] handle_request: partial_history
+2024-04-09 13:25:39,640 DEBUG   SenderThread:3030313 [sender.py:send():379] send: history
+2024-04-09 13:25:39,640 DEBUG   SenderThread:3030313 [sender.py:send_request():406] send_request: summary_record
+2024-04-09 13:25:39,641 INFO    SenderThread:3030313 [sender.py:_save_file():1390] saving file wandb-summary.json with policy end
+2024-04-09 13:25:39,914 INFO    Thread-12 :3030313 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/feolalab/Desktop/guided-anomaly/wandb/run-20240409_132527-ch1gx6s7/files/wandb-summary.json
+2024-04-09 13:25:39,915 INFO    Thread-12 :3030313 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/feolalab/Desktop/guided-anomaly/wandb/run-20240409_132527-ch1gx6s7/files/output.log
+2024-04-09 13:25:40,561 DEBUG   HandlerThread:3030313 [handler.py:handle_request():146] handle_request: partial_history
+2024-04-09 13:25:40,563 DEBUG   SenderThread:3030313 [sender.py:send():379] send: history
+2024-04-09 13:25:40,563 DEBUG   SenderThread:3030313 [sender.py:send_request():406] send_request: summary_record
+2024-04-09 13:25:40,564 INFO    SenderThread:3030313 [sender.py:_save_file():1390] saving file wandb-summary.json with policy end
+2024-04-09 13:25:40,915 INFO    Thread-12 :3030313 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/feolalab/Desktop/guided-anomaly/wandb/run-20240409_132527-ch1gx6s7/files/wandb-summary.json
+2024-04-09 13:25:41,277 DEBUG   HandlerThread:3030313 [handler.py:handle_request():146] handle_request: partial_history
+2024-04-09 13:25:41,279 DEBUG   SenderThread:3030313 [sender.py:send():379] send: history
+2024-04-09 13:25:41,279 DEBUG   SenderThread:3030313 [sender.py:send_request():406] send_request: summary_record
+2024-04-09 13:25:41,282 INFO    SenderThread:3030313 [sender.py:_save_file():1390] saving file wandb-summary.json with policy end
+2024-04-09 13:25:41,915 INFO    Thread-12 :3030313 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/feolalab/Desktop/guided-anomaly/wandb/run-20240409_132527-ch1gx6s7/files/wandb-summary.json
+2024-04-09 13:25:42,468 DEBUG   HandlerThread:3030313 [handler.py:handle_request():146] handle_request: partial_history
+2024-04-09 13:25:42,469 DEBUG   SenderThread:3030313 [sender.py:send():379] send: history
+2024-04-09 13:25:42,469 DEBUG   SenderThread:3030313 [sender.py:send_request():406] send_request: summary_record
+2024-04-09 13:25:42,470 INFO    SenderThread:3030313 [sender.py:_save_file():1390] saving file wandb-summary.json with policy end
+2024-04-09 13:25:42,916 INFO    Thread-12 :3030313 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/feolalab/Desktop/guided-anomaly/wandb/run-20240409_132527-ch1gx6s7/files/wandb-summary.json
+2024-04-09 13:25:43,300 DEBUG   HandlerThread:3030313 [handler.py:handle_request():146] handle_request: partial_history
+2024-04-09 13:25:43,301 DEBUG   SenderThread:3030313 [sender.py:send():379] send: history
+2024-04-09 13:25:43,301 DEBUG   SenderThread:3030313 [sender.py:send_request():406] send_request: summary_record
+2024-04-09 13:25:43,304 INFO    SenderThread:3030313 [sender.py:_save_file():1390] saving file wandb-summary.json with policy end
+2024-04-09 13:25:43,916 INFO    Thread-12 :3030313 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/feolalab/Desktop/guided-anomaly/wandb/run-20240409_132527-ch1gx6s7/files/wandb-summary.json
+2024-04-09 13:25:44,110 DEBUG   HandlerThread:3030313 [handler.py:handle_request():146] handle_request: partial_history
+2024-04-09 13:25:44,111 DEBUG   SenderThread:3030313 [sender.py:send():379] send: history
+2024-04-09 13:25:44,112 DEBUG   SenderThread:3030313 [sender.py:send_request():406] send_request: summary_record
+2024-04-09 13:25:44,112 DEBUG   HandlerThread:3030313 [handler.py:handle_request():146] handle_request: status_report
+2024-04-09 13:25:44,113 INFO    SenderThread:3030313 [sender.py:_save_file():1390] saving file wandb-summary.json with policy end
+2024-04-09 13:25:44,917 INFO    Thread-12 :3030313 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/feolalab/Desktop/guided-anomaly/wandb/run-20240409_132527-ch1gx6s7/files/wandb-summary.json
+2024-04-09 13:25:45,294 DEBUG   HandlerThread:3030313 [handler.py:handle_request():146] handle_request: partial_history
+2024-04-09 13:25:45,296 DEBUG   SenderThread:3030313 [sender.py:send():379] send: history
+2024-04-09 13:25:45,296 DEBUG   SenderThread:3030313 [sender.py:send_request():406] send_request: summary_record
+2024-04-09 13:25:45,297 INFO    SenderThread:3030313 [sender.py:_save_file():1390] saving file wandb-summary.json with policy end
+2024-04-09 13:25:45,904 DEBUG   HandlerThread:3030313 [handler.py:handle_request():146] handle_request: partial_history
+2024-04-09 13:25:45,905 DEBUG   SenderThread:3030313 [sender.py:send():379] send: history
+2024-04-09 13:25:45,906 DEBUG   SenderThread:3030313 [sender.py:send_request():406] send_request: summary_record
+2024-04-09 13:25:45,909 INFO    SenderThread:3030313 [sender.py:_save_file():1390] saving file wandb-summary.json with policy end
+2024-04-09 13:25:45,917 INFO    Thread-12 :3030313 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/feolalab/Desktop/guided-anomaly/wandb/run-20240409_132527-ch1gx6s7/files/wandb-summary.json
+2024-04-09 13:25:46,541 DEBUG   HandlerThread:3030313 [handler.py:handle_request():146] handle_request: stop_status
+2024-04-09 13:25:46,541 DEBUG   SenderThread:3030313 [sender.py:send_request():406] send_request: stop_status
+2024-04-09 13:25:46,548 DEBUG   HandlerThread:3030313 [handler.py:handle_request():146] handle_request: internal_messages
+2024-04-09 13:25:46,944 DEBUG   HandlerThread:3030313 [handler.py:handle_request():146] handle_request: partial_history
+2024-04-09 13:25:46,945 DEBUG   SenderThread:3030313 [sender.py:send():379] send: history
+2024-04-09 13:25:46,946 DEBUG   SenderThread:3030313 [sender.py:send_request():406] send_request: summary_record
+2024-04-09 13:25:46,946 INFO    SenderThread:3030313 [sender.py:_save_file():1390] saving file wandb-summary.json with policy end
+2024-04-09 13:25:47,918 INFO    Thread-12 :3030313 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/feolalab/Desktop/guided-anomaly/wandb/run-20240409_132527-ch1gx6s7/files/wandb-summary.json
+2024-04-09 13:25:48,131 DEBUG   HandlerThread:3030313 [handler.py:handle_request():146] handle_request: partial_history
+2024-04-09 13:25:48,132 DEBUG   SenderThread:3030313 [sender.py:send():379] send: history
+2024-04-09 13:25:48,133 DEBUG   SenderThread:3030313 [sender.py:send_request():406] send_request: summary_record
+2024-04-09 13:25:48,136 INFO    SenderThread:3030313 [sender.py:_save_file():1390] saving file wandb-summary.json with policy end
+2024-04-09 13:25:48,918 INFO    Thread-12 :3030313 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/feolalab/Desktop/guided-anomaly/wandb/run-20240409_132527-ch1gx6s7/files/wandb-summary.json
+2024-04-09 13:25:48,964 DEBUG   HandlerThread:3030313 [handler.py:handle_request():146] handle_request: partial_history
+2024-04-09 13:25:48,966 DEBUG   SenderThread:3030313 [sender.py:send():379] send: history
+2024-04-09 13:25:48,966 DEBUG   SenderThread:3030313 [sender.py:send_request():406] send_request: summary_record
+2024-04-09 13:25:48,967 INFO    SenderThread:3030313 [sender.py:_save_file():1390] saving file wandb-summary.json with policy end
+2024-04-09 13:25:49,772 DEBUG   HandlerThread:3030313 [handler.py:handle_request():146] handle_request: partial_history
+2024-04-09 13:25:49,774 DEBUG   SenderThread:3030313 [sender.py:send():379] send: history
+2024-04-09 13:25:49,774 DEBUG   SenderThread:3030313 [sender.py:send_request():406] send_request: summary_record
+2024-04-09 13:25:49,775 DEBUG   HandlerThread:3030313 [handler.py:handle_request():146] handle_request: status_report
+2024-04-09 13:25:49,776 INFO    SenderThread:3030313 [sender.py:_save_file():1390] saving file wandb-summary.json with policy end
+2024-04-09 13:25:49,919 INFO    Thread-12 :3030313 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/feolalab/Desktop/guided-anomaly/wandb/run-20240409_132527-ch1gx6s7/files/wandb-summary.json
+2024-04-09 13:25:49,919 INFO    Thread-12 :3030313 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/feolalab/Desktop/guided-anomaly/wandb/run-20240409_132527-ch1gx6s7/files/output.log
+2024-04-09 13:25:50,266 DEBUG   HandlerThread:3030313 [handler.py:handle_request():146] handle_request: partial_history
+2024-04-09 13:25:50,268 DEBUG   SenderThread:3030313 [sender.py:send():379] send: history
+2024-04-09 13:25:50,268 DEBUG   SenderThread:3030313 [sender.py:send_request():406] send_request: summary_record
+2024-04-09 13:25:50,271 INFO    SenderThread:3030313 [sender.py:_save_file():1390] saving file wandb-summary.json with policy end
+2024-04-09 13:25:50,919 INFO    Thread-12 :3030313 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/feolalab/Desktop/guided-anomaly/wandb/run-20240409_132527-ch1gx6s7/files/wandb-summary.json
+2024-04-09 13:25:51,365 DEBUG   HandlerThread:3030313 [handler.py:handle_request():146] handle_request: partial_history
+2024-04-09 13:25:51,366 DEBUG   SenderThread:3030313 [sender.py:send():379] send: history
+2024-04-09 13:25:51,366 DEBUG   SenderThread:3030313 [sender.py:send_request():406] send_request: summary_record
+2024-04-09 13:25:51,367 INFO    SenderThread:3030313 [sender.py:_save_file():1390] saving file wandb-summary.json with policy end
+2024-04-09 13:25:51,920 INFO    Thread-12 :3030313 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/feolalab/Desktop/guided-anomaly/wandb/run-20240409_132527-ch1gx6s7/files/wandb-summary.json
+2024-04-09 13:25:52,200 DEBUG   HandlerThread:3030313 [handler.py:handle_request():146] handle_request: partial_history
+2024-04-09 13:25:52,202 DEBUG   SenderThread:3030313 [sender.py:send():379] send: history
+2024-04-09 13:25:52,202 DEBUG   SenderThread:3030313 [sender.py:send_request():406] send_request: summary_record
+2024-04-09 13:25:52,202 INFO    SenderThread:3030313 [sender.py:_save_file():1390] saving file wandb-summary.json with policy end
+2024-04-09 13:25:52,920 INFO    Thread-12 :3030313 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/feolalab/Desktop/guided-anomaly/wandb/run-20240409_132527-ch1gx6s7/files/wandb-summary.json
+2024-04-09 13:25:53,005 DEBUG   HandlerThread:3030313 [handler.py:handle_request():146] handle_request: partial_history
+2024-04-09 13:25:53,006 DEBUG   SenderThread:3030313 [sender.py:send():379] send: history
+2024-04-09 13:25:53,007 DEBUG   SenderThread:3030313 [sender.py:send_request():406] send_request: summary_record
+2024-04-09 13:25:53,012 INFO    SenderThread:3030313 [sender.py:_save_file():1390] saving file wandb-summary.json with policy end
+2024-04-09 13:25:53,921 INFO    Thread-12 :3030313 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/feolalab/Desktop/guided-anomaly/wandb/run-20240409_132527-ch1gx6s7/files/wandb-summary.json
+2024-04-09 13:25:54,190 DEBUG   HandlerThread:3030313 [handler.py:handle_request():146] handle_request: partial_history
+2024-04-09 13:25:54,191 DEBUG   SenderThread:3030313 [sender.py:send():379] send: history
+2024-04-09 13:25:54,192 DEBUG   SenderThread:3030313 [sender.py:send_request():406] send_request: summary_record
+2024-04-09 13:25:54,192 INFO    SenderThread:3030313 [sender.py:_save_file():1390] saving file wandb-summary.json with policy end
+2024-04-09 13:25:54,797 DEBUG   HandlerThread:3030313 [handler.py:handle_request():146] handle_request: partial_history
+2024-04-09 13:25:54,799 DEBUG   SenderThread:3030313 [sender.py:send():379] send: history
+2024-04-09 13:25:54,799 DEBUG   SenderThread:3030313 [sender.py:send_request():406] send_request: summary_record
+2024-04-09 13:25:54,799 DEBUG   HandlerThread:3030313 [handler.py:handle_request():146] handle_request: status_report
+2024-04-09 13:25:54,800 INFO    SenderThread:3030313 [sender.py:_save_file():1390] saving file wandb-summary.json with policy end
+2024-04-09 13:25:54,921 INFO    Thread-12 :3030313 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/feolalab/Desktop/guided-anomaly/wandb/run-20240409_132527-ch1gx6s7/files/wandb-summary.json
+2024-04-09 13:25:55,832 DEBUG   HandlerThread:3030313 [handler.py:handle_request():146] handle_request: partial_history
+2024-04-09 13:25:55,834 DEBUG   SenderThread:3030313 [sender.py:send():379] send: history
+2024-04-09 13:25:55,834 DEBUG   SenderThread:3030313 [sender.py:send_request():406] send_request: summary_record
+2024-04-09 13:25:55,836 INFO    SenderThread:3030313 [sender.py:_save_file():1390] saving file wandb-summary.json with policy end
+2024-04-09 13:25:55,922 INFO    Thread-12 :3030313 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/feolalab/Desktop/guided-anomaly/wandb/run-20240409_132527-ch1gx6s7/files/wandb-summary.json
+2024-04-09 13:25:56,795 DEBUG   HandlerThread:3030313 [handler.py:handle_request():146] handle_request: partial_history
+2024-04-09 13:25:56,797 DEBUG   SenderThread:3030313 [sender.py:send():379] send: history
+2024-04-09 13:25:56,797 DEBUG   SenderThread:3030313 [sender.py:send_request():406] send_request: summary_record
+2024-04-09 13:25:56,798 INFO    SenderThread:3030313 [sender.py:_save_file():1390] saving file wandb-summary.json with policy end
+2024-04-09 13:25:56,922 INFO    Thread-12 :3030313 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/feolalab/Desktop/guided-anomaly/wandb/run-20240409_132527-ch1gx6s7/files/wandb-summary.json
+2024-04-09 13:25:57,594 DEBUG   HandlerThread:3030313 [handler.py:handle_request():146] handle_request: partial_history
+2024-04-09 13:25:57,595 DEBUG   SenderThread:3030313 [sender.py:send():379] send: history
+2024-04-09 13:25:57,595 DEBUG   SenderThread:3030313 [sender.py:send_request():406] send_request: summary_record
+2024-04-09 13:25:57,596 INFO    SenderThread:3030313 [sender.py:_save_file():1390] saving file wandb-summary.json with policy end
+2024-04-09 13:25:57,923 INFO    Thread-12 :3030313 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/feolalab/Desktop/guided-anomaly/wandb/run-20240409_132527-ch1gx6s7/files/wandb-summary.json
+2024-04-09 13:25:57,923 INFO    Thread-12 :3030313 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/feolalab/Desktop/guided-anomaly/wandb/run-20240409_132527-ch1gx6s7/files/output.log
+2024-04-09 13:25:58,662 DEBUG   HandlerThread:3030313 [handler.py:handle_request():146] handle_request: partial_history
+2024-04-09 13:25:58,663 DEBUG   SenderThread:3030313 [sender.py:send():379] send: history
+2024-04-09 13:25:58,664 DEBUG   SenderThread:3030313 [sender.py:send_request():406] send_request: summary_record
+2024-04-09 13:25:58,666 INFO    SenderThread:3030313 [sender.py:_save_file():1390] saving file wandb-summary.json with policy end
+2024-04-09 13:25:58,923 INFO    Thread-12 :3030313 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/feolalab/Desktop/guided-anomaly/wandb/run-20240409_132527-ch1gx6s7/files/wandb-summary.json
+2024-04-09 13:25:59,595 DEBUG   HandlerThread:3030313 [handler.py:handle_request():146] handle_request: partial_history
+2024-04-09 13:25:59,596 DEBUG   SenderThread:3030313 [sender.py:send():379] send: history
+2024-04-09 13:25:59,597 DEBUG   SenderThread:3030313 [sender.py:send_request():406] send_request: summary_record
+2024-04-09 13:25:59,597 INFO    SenderThread:3030313 [sender.py:_save_file():1390] saving file wandb-summary.json with policy end
+2024-04-09 13:25:59,924 INFO    Thread-12 :3030313 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/feolalab/Desktop/guided-anomaly/wandb/run-20240409_132527-ch1gx6s7/files/wandb-summary.json
+2024-04-09 13:26:00,302 DEBUG   HandlerThread:3030313 [handler.py:handle_request():146] handle_request: partial_history
+2024-04-09 13:26:00,303 DEBUG   SenderThread:3030313 [sender.py:send():379] send: history
+2024-04-09 13:26:00,309 DEBUG   HandlerThread:3030313 [handler.py:handle_request():146] handle_request: status_report
+2024-04-09 13:26:00,402 DEBUG   SenderThread:3030313 [sender.py:send_request():406] send_request: summary_record
+2024-04-09 13:26:00,402 INFO    SenderThread:3030313 [sender.py:_save_file():1390] saving file wandb-summary.json with policy end
+2024-04-09 13:26:00,924 INFO    Thread-12 :3030313 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/feolalab/Desktop/guided-anomaly/wandb/run-20240409_132527-ch1gx6s7/files/wandb-summary.json
+2024-04-09 13:26:00,925 INFO    Thread-12 :3030313 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/feolalab/Desktop/guided-anomaly/wandb/run-20240409_132527-ch1gx6s7/files/config.yaml
+2024-04-09 13:26:01,490 DEBUG   HandlerThread:3030313 [handler.py:handle_request():146] handle_request: partial_history
+2024-04-09 13:26:01,491 DEBUG   HandlerThread:3030313 [handler.py:handle_request():146] handle_request: internal_messages
+2024-04-09 13:26:01,492 DEBUG   SenderThread:3030313 [sender.py:send():379] send: history
+2024-04-09 13:26:01,492 DEBUG   HandlerThread:3030313 [handler.py:handle_request():146] handle_request: stop_status
+2024-04-09 13:26:01,492 DEBUG   SenderThread:3030313 [sender.py:send_request():406] send_request: summary_record
+2024-04-09 13:26:01,496 INFO    SenderThread:3030313 [sender.py:_save_file():1390] saving file wandb-summary.json with policy end
+2024-04-09 13:26:01,496 DEBUG   SenderThread:3030313 [sender.py:send_request():406] send_request: stop_status
+2024-04-09 13:26:01,925 INFO    Thread-12 :3030313 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/feolalab/Desktop/guided-anomaly/wandb/run-20240409_132527-ch1gx6s7/files/wandb-summary.json
+2024-04-09 13:26:02,365 DEBUG   HandlerThread:3030313 [handler.py:handle_request():146] handle_request: partial_history
+2024-04-09 13:26:02,366 DEBUG   SenderThread:3030313 [sender.py:send():379] send: history
+2024-04-09 13:26:02,366 DEBUG   SenderThread:3030313 [sender.py:send_request():406] send_request: summary_record
+2024-04-09 13:26:02,366 INFO    SenderThread:3030313 [sender.py:_save_file():1390] saving file wandb-summary.json with policy end
+2024-04-09 13:26:02,925 INFO    Thread-12 :3030313 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/feolalab/Desktop/guided-anomaly/wandb/run-20240409_132527-ch1gx6s7/files/wandb-summary.json
+2024-04-09 13:26:03,131 DEBUG   HandlerThread:3030313 [handler.py:handle_request():146] handle_request: partial_history
+2024-04-09 13:26:03,132 DEBUG   SenderThread:3030313 [sender.py:send():379] send: history
+2024-04-09 13:26:03,132 DEBUG   SenderThread:3030313 [sender.py:send_request():406] send_request: summary_record
+2024-04-09 13:26:03,133 INFO    SenderThread:3030313 [sender.py:_save_file():1390] saving file wandb-summary.json with policy end
+2024-04-09 13:26:03,926 INFO    Thread-12 :3030313 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/feolalab/Desktop/guided-anomaly/wandb/run-20240409_132527-ch1gx6s7/files/wandb-summary.json
+2024-04-09 13:26:04,315 DEBUG   HandlerThread:3030313 [handler.py:handle_request():146] handle_request: partial_history
+2024-04-09 13:26:04,316 DEBUG   SenderThread:3030313 [sender.py:send():379] send: history
+2024-04-09 13:26:04,316 DEBUG   SenderThread:3030313 [sender.py:send_request():406] send_request: summary_record
+2024-04-09 13:26:04,321 INFO    SenderThread:3030313 [sender.py:_save_file():1390] saving file wandb-summary.json with policy end
+2024-04-09 13:26:04,926 INFO    Thread-12 :3030313 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/feolalab/Desktop/guided-anomaly/wandb/run-20240409_132527-ch1gx6s7/files/wandb-summary.json
+2024-04-09 13:26:05,222 DEBUG   HandlerThread:3030313 [handler.py:handle_request():146] handle_request: partial_history
+2024-04-09 13:26:05,224 DEBUG   SenderThread:3030313 [sender.py:send():379] send: history
+2024-04-09 13:26:05,224 DEBUG   SenderThread:3030313 [sender.py:send_request():406] send_request: summary_record
+2024-04-09 13:26:05,225 INFO    SenderThread:3030313 [sender.py:_save_file():1390] saving file wandb-summary.json with policy end
+2024-04-09 13:26:05,813 DEBUG   HandlerThread:3030313 [handler.py:handle_request():146] handle_request: status_report
+2024-04-09 13:26:05,927 INFO    Thread-12 :3030313 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/feolalab/Desktop/guided-anomaly/wandb/run-20240409_132527-ch1gx6s7/files/wandb-summary.json
+2024-04-09 13:26:05,949 DEBUG   HandlerThread:3030313 [handler.py:handle_request():146] handle_request: partial_history
+2024-04-09 13:26:05,950 DEBUG   SenderThread:3030313 [sender.py:send():379] send: history
+2024-04-09 13:26:05,951 DEBUG   SenderThread:3030313 [sender.py:send_request():406] send_request: summary_record
+2024-04-09 13:26:05,952 INFO    SenderThread:3030313 [sender.py:_save_file():1390] saving file wandb-summary.json with policy end
+2024-04-09 13:26:06,927 INFO    Thread-12 :3030313 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/feolalab/Desktop/guided-anomaly/wandb/run-20240409_132527-ch1gx6s7/files/wandb-summary.json
+2024-04-09 13:26:07,136 DEBUG   HandlerThread:3030313 [handler.py:handle_request():146] handle_request: partial_history
+2024-04-09 13:26:07,138 DEBUG   SenderThread:3030313 [sender.py:send():379] send: history
+2024-04-09 13:26:07,138 DEBUG   SenderThread:3030313 [sender.py:send_request():406] send_request: summary_record
+2024-04-09 13:26:07,144 INFO    SenderThread:3030313 [sender.py:_save_file():1390] saving file wandb-summary.json with policy end
+2024-04-09 13:26:07,928 INFO    Thread-12 :3030313 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/feolalab/Desktop/guided-anomaly/wandb/run-20240409_132527-ch1gx6s7/files/wandb-summary.json
+2024-04-09 13:26:07,928 INFO    Thread-12 :3030313 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/feolalab/Desktop/guided-anomaly/wandb/run-20240409_132527-ch1gx6s7/files/output.log
+2024-04-09 13:26:08,221 DEBUG   HandlerThread:3030313 [handler.py:handle_request():146] handle_request: partial_history
+2024-04-09 13:26:08,223 DEBUG   SenderThread:3030313 [sender.py:send():379] send: history
+2024-04-09 13:26:08,223 DEBUG   SenderThread:3030313 [sender.py:send_request():406] send_request: summary_record
+2024-04-09 13:26:08,224 INFO    SenderThread:3030313 [sender.py:_save_file():1390] saving file wandb-summary.json with policy end
+2024-04-09 13:26:08,818 DEBUG   HandlerThread:3030313 [handler.py:handle_request():146] handle_request: partial_history
+2024-04-09 13:26:08,820 DEBUG   SenderThread:3030313 [sender.py:send():379] send: history
+2024-04-09 13:26:08,820 DEBUG   SenderThread:3030313 [sender.py:send_request():406] send_request: summary_record
+2024-04-09 13:26:08,821 INFO    SenderThread:3030313 [sender.py:_save_file():1390] saving file wandb-summary.json with policy end
+2024-04-09 13:26:08,928 INFO    Thread-12 :3030313 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/feolalab/Desktop/guided-anomaly/wandb/run-20240409_132527-ch1gx6s7/files/wandb-summary.json
+2024-04-09 13:26:09,974 DEBUG   HandlerThread:3030313 [handler.py:handle_request():146] handle_request: partial_history
+2024-04-09 13:26:09,975 DEBUG   SenderThread:3030313 [sender.py:send():379] send: history
+2024-04-09 13:26:09,983 DEBUG   SenderThread:3030313 [sender.py:send_request():406] send_request: summary_record
+2024-04-09 13:26:09,989 INFO    SenderThread:3030313 [sender.py:_save_file():1390] saving file wandb-summary.json with policy end
+2024-04-09 13:26:10,803 DEBUG   HandlerThread:3030313 [handler.py:handle_request():146] handle_request: partial_history
+2024-04-09 13:26:10,805 DEBUG   SenderThread:3030313 [sender.py:send():379] send: history
+2024-04-09 13:26:10,805 DEBUG   SenderThread:3030313 [sender.py:send_request():406] send_request: summary_record
+2024-04-09 13:26:10,805 INFO    SenderThread:3030313 [sender.py:_save_file():1390] saving file wandb-summary.json with policy end
+2024-04-09 13:26:10,929 INFO    Thread-12 :3030313 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/feolalab/Desktop/guided-anomaly/wandb/run-20240409_132527-ch1gx6s7/files/wandb-summary.json
+2024-04-09 13:26:11,615 DEBUG   HandlerThread:3030313 [handler.py:handle_request():146] handle_request: partial_history
+2024-04-09 13:26:11,616 DEBUG   SenderThread:3030313 [sender.py:send():379] send: history
+2024-04-09 13:26:11,616 DEBUG   SenderThread:3030313 [sender.py:send_request():406] send_request: summary_record
+2024-04-09 13:26:11,617 DEBUG   HandlerThread:3030313 [handler.py:handle_request():146] handle_request: status_report
+2024-04-09 13:26:11,617 INFO    SenderThread:3030313 [sender.py:_save_file():1390] saving file wandb-summary.json with policy end
+2024-04-09 13:26:11,930 INFO    Thread-12 :3030313 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/feolalab/Desktop/guided-anomaly/wandb/run-20240409_132527-ch1gx6s7/files/wandb-summary.json
+2024-04-09 13:26:12,801 DEBUG   HandlerThread:3030313 [handler.py:handle_request():146] handle_request: partial_history
+2024-04-09 13:26:12,802 DEBUG   SenderThread:3030313 [sender.py:send():379] send: history
+2024-04-09 13:26:12,802 DEBUG   SenderThread:3030313 [sender.py:send_request():406] send_request: summary_record
+2024-04-09 13:26:12,807 INFO    SenderThread:3030313 [sender.py:_save_file():1390] saving file wandb-summary.json with policy end
+2024-04-09 13:26:12,930 INFO    Thread-12 :3030313 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/feolalab/Desktop/guided-anomaly/wandb/run-20240409_132527-ch1gx6s7/files/wandb-summary.json
+2024-04-09 13:26:13,512 DEBUG   HandlerThread:3030313 [handler.py:handle_request():146] handle_request: partial_history
+2024-04-09 13:26:13,513 DEBUG   SenderThread:3030313 [sender.py:send():379] send: history
+2024-04-09 13:26:13,513 DEBUG   SenderThread:3030313 [sender.py:send_request():406] send_request: summary_record
+2024-04-09 13:26:13,514 INFO    SenderThread:3030313 [sender.py:_save_file():1390] saving file wandb-summary.json with policy end
+2024-04-09 13:26:13,931 INFO    Thread-12 :3030313 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/feolalab/Desktop/guided-anomaly/wandb/run-20240409_132527-ch1gx6s7/files/wandb-summary.json
+2024-04-09 13:26:14,445 DEBUG   HandlerThread:3030313 [handler.py:handle_request():146] handle_request: partial_history
+2024-04-09 13:26:14,446 DEBUG   SenderThread:3030313 [sender.py:send():379] send: history
+2024-04-09 13:26:14,447 DEBUG   SenderThread:3030313 [sender.py:send_request():406] send_request: summary_record
+2024-04-09 13:26:14,447 INFO    SenderThread:3030313 [sender.py:_save_file():1390] saving file wandb-summary.json with policy end
+2024-04-09 13:26:14,931 INFO    Thread-12 :3030313 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/feolalab/Desktop/guided-anomaly/wandb/run-20240409_132527-ch1gx6s7/files/wandb-summary.json
+2024-04-09 13:26:15,630 DEBUG   HandlerThread:3030313 [handler.py:handle_request():146] handle_request: partial_history
+2024-04-09 13:26:15,632 DEBUG   SenderThread:3030313 [sender.py:send():379] send: history
+2024-04-09 13:26:15,632 DEBUG   SenderThread:3030313 [sender.py:send_request():406] send_request: summary_record
+2024-04-09 13:26:15,635 INFO    SenderThread:3030313 [sender.py:_save_file():1390] saving file wandb-summary.json with policy end
+2024-04-09 13:26:15,931 INFO    Thread-12 :3030313 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/feolalab/Desktop/guided-anomaly/wandb/run-20240409_132527-ch1gx6s7/files/wandb-summary.json
+2024-04-09 13:26:16,242 DEBUG   HandlerThread:3030313 [handler.py:handle_request():146] handle_request: partial_history
+2024-04-09 13:26:16,243 DEBUG   SenderThread:3030313 [sender.py:send():379] send: history
+2024-04-09 13:26:16,244 DEBUG   SenderThread:3030313 [sender.py:send_request():406] send_request: summary_record
+2024-04-09 13:26:16,244 INFO    SenderThread:3030313 [sender.py:_save_file():1390] saving file wandb-summary.json with policy end
+2024-04-09 13:26:16,782 DEBUG   HandlerThread:3030313 [handler.py:handle_request():146] handle_request: status_report
+2024-04-09 13:26:16,915 DEBUG   HandlerThread:3030313 [handler.py:handle_request():146] handle_request: stop_status
+2024-04-09 13:26:16,916 DEBUG   SenderThread:3030313 [sender.py:send_request():406] send_request: stop_status
+2024-04-09 13:26:16,932 INFO    Thread-12 :3030313 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/feolalab/Desktop/guided-anomaly/wandb/run-20240409_132527-ch1gx6s7/files/wandb-summary.json
+2024-04-09 13:26:16,934 DEBUG   HandlerThread:3030313 [handler.py:handle_request():146] handle_request: internal_messages
+2024-04-09 13:26:17,319 DEBUG   HandlerThread:3030313 [handler.py:handle_request():146] handle_request: partial_history
+2024-04-09 13:26:17,320 DEBUG   SenderThread:3030313 [sender.py:send():379] send: history
+2024-04-09 13:26:17,321 DEBUG   SenderThread:3030313 [sender.py:send_request():406] send_request: summary_record
+2024-04-09 13:26:17,321 INFO    SenderThread:3030313 [sender.py:_save_file():1390] saving file wandb-summary.json with policy end
+2024-04-09 13:26:17,933 INFO    Thread-12 :3030313 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/feolalab/Desktop/guided-anomaly/wandb/run-20240409_132527-ch1gx6s7/files/wandb-summary.json
+2024-04-09 13:26:17,933 INFO    Thread-12 :3030313 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/feolalab/Desktop/guided-anomaly/wandb/run-20240409_132527-ch1gx6s7/files/output.log
+2024-04-09 13:26:18,467 DEBUG   HandlerThread:3030313 [handler.py:handle_request():146] handle_request: partial_history
+2024-04-09 13:26:18,468 DEBUG   SenderThread:3030313 [sender.py:send():379] send: history
+2024-04-09 13:26:18,468 DEBUG   SenderThread:3030313 [sender.py:send_request():406] send_request: summary_record
+2024-04-09 13:26:18,471 INFO    SenderThread:3030313 [sender.py:_save_file():1390] saving file wandb-summary.json with policy end
+2024-04-09 13:26:18,933 INFO    Thread-12 :3030313 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/feolalab/Desktop/guided-anomaly/wandb/run-20240409_132527-ch1gx6s7/files/wandb-summary.json
+2024-04-09 13:26:19,295 DEBUG   HandlerThread:3030313 [handler.py:handle_request():146] handle_request: partial_history
+2024-04-09 13:26:19,296 DEBUG   SenderThread:3030313 [sender.py:send():379] send: history
+2024-04-09 13:26:19,297 DEBUG   SenderThread:3030313 [sender.py:send_request():406] send_request: summary_record
+2024-04-09 13:26:19,297 INFO    SenderThread:3030313 [sender.py:_save_file():1390] saving file wandb-summary.json with policy end
+2024-04-09 13:26:19,933 INFO    Thread-12 :3030313 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/feolalab/Desktop/guided-anomaly/wandb/run-20240409_132527-ch1gx6s7/files/wandb-summary.json
+2024-04-09 13:26:20,107 DEBUG   HandlerThread:3030313 [handler.py:handle_request():146] handle_request: partial_history
+2024-04-09 13:26:20,108 DEBUG   SenderThread:3030313 [sender.py:send():379] send: history
+2024-04-09 13:26:20,108 DEBUG   SenderThread:3030313 [sender.py:send_request():406] send_request: summary_record
+2024-04-09 13:26:20,109 INFO    SenderThread:3030313 [sender.py:_save_file():1390] saving file wandb-summary.json with policy end
+2024-04-09 13:26:20,934 INFO    Thread-12 :3030313 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/feolalab/Desktop/guided-anomaly/wandb/run-20240409_132527-ch1gx6s7/files/wandb-summary.json
+2024-04-09 13:26:21,290 DEBUG   HandlerThread:3030313 [handler.py:handle_request():146] handle_request: partial_history
+2024-04-09 13:26:21,292 DEBUG   SenderThread:3030313 [sender.py:send():379] send: history
+2024-04-09 13:26:21,292 DEBUG   SenderThread:3030313 [sender.py:send_request():406] send_request: summary_record
+2024-04-09 13:26:21,295 INFO    SenderThread:3030313 [sender.py:_save_file():1390] saving file wandb-summary.json with policy end
+2024-04-09 13:26:21,934 INFO    Thread-12 :3030313 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/feolalab/Desktop/guided-anomaly/wandb/run-20240409_132527-ch1gx6s7/files/wandb-summary.json
+2024-04-09 13:26:21,938 DEBUG   HandlerThread:3030313 [handler.py:handle_request():146] handle_request: partial_history
+2024-04-09 13:26:21,939 DEBUG   SenderThread:3030313 [sender.py:send():379] send: history
+2024-04-09 13:26:21,939 DEBUG   SenderThread:3030313 [sender.py:send_request():406] send_request: summary_record
+2024-04-09 13:26:21,940 DEBUG   HandlerThread:3030313 [handler.py:handle_request():146] handle_request: status_report
+2024-04-09 13:26:21,940 INFO    SenderThread:3030313 [sender.py:_save_file():1390] saving file wandb-summary.json with policy end
+2024-04-09 13:26:22,933 DEBUG   HandlerThread:3030313 [handler.py:handle_request():146] handle_request: partial_history
+2024-04-09 13:26:22,934 DEBUG   SenderThread:3030313 [sender.py:send():379] send: history
+2024-04-09 13:26:22,935 DEBUG   SenderThread:3030313 [sender.py:send_request():406] send_request: summary_record
+2024-04-09 13:26:22,936 INFO    SenderThread:3030313 [sender.py:_save_file():1390] saving file wandb-summary.json with policy end
+2024-04-09 13:26:22,936 INFO    Thread-12 :3030313 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/feolalab/Desktop/guided-anomaly/wandb/run-20240409_132527-ch1gx6s7/files/wandb-summary.json
+2024-04-09 13:26:24,126 DEBUG   HandlerThread:3030313 [handler.py:handle_request():146] handle_request: partial_history
+2024-04-09 13:26:24,127 DEBUG   SenderThread:3030313 [sender.py:send():379] send: history
+2024-04-09 13:26:24,127 DEBUG   SenderThread:3030313 [sender.py:send_request():406] send_request: summary_record
+2024-04-09 13:26:24,131 INFO    SenderThread:3030313 [sender.py:_save_file():1390] saving file wandb-summary.json with policy end
+2024-04-09 13:26:24,937 INFO    Thread-12 :3030313 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/feolalab/Desktop/guided-anomaly/wandb/run-20240409_132527-ch1gx6s7/files/wandb-summary.json
+2024-04-09 13:26:24,953 DEBUG   HandlerThread:3030313 [handler.py:handle_request():146] handle_request: partial_history
+2024-04-09 13:26:24,954 DEBUG   SenderThread:3030313 [sender.py:send():379] send: history
+2024-04-09 13:26:24,955 DEBUG   SenderThread:3030313 [sender.py:send_request():406] send_request: summary_record
+2024-04-09 13:26:24,955 INFO    SenderThread:3030313 [sender.py:_save_file():1390] saving file wandb-summary.json with policy end
+2024-04-09 13:26:25,834 DEBUG   HandlerThread:3030313 [handler.py:handle_request():146] handle_request: partial_history
+2024-04-09 13:26:25,835 DEBUG   SenderThread:3030313 [sender.py:send():379] send: history
+2024-04-09 13:26:25,836 DEBUG   SenderThread:3030313 [sender.py:send_request():406] send_request: summary_record
+2024-04-09 13:26:25,836 INFO    SenderThread:3030313 [sender.py:_save_file():1390] saving file wandb-summary.json with policy end
+2024-04-09 13:26:25,937 INFO    Thread-12 :3030313 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/feolalab/Desktop/guided-anomaly/wandb/run-20240409_132527-ch1gx6s7/files/wandb-summary.json
+2024-04-09 13:26:25,938 INFO    Thread-12 :3030313 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/feolalab/Desktop/guided-anomaly/wandb/run-20240409_132527-ch1gx6s7/files/output.log
+2024-04-09 13:26:26,958 DEBUG   HandlerThread:3030313 [handler.py:handle_request():146] handle_request: partial_history
+2024-04-09 13:26:26,959 DEBUG   SenderThread:3030313 [sender.py:send():379] send: history
+2024-04-09 13:26:26,960 DEBUG   SenderThread:3030313 [sender.py:send_request():406] send_request: summary_record
+2024-04-09 13:26:26,965 DEBUG   HandlerThread:3030313 [handler.py:handle_request():146] handle_request: status_report
+2024-04-09 13:26:26,968 INFO    SenderThread:3030313 [sender.py:_save_file():1390] saving file wandb-summary.json with policy end
+2024-04-09 13:26:27,902 DEBUG   HandlerThread:3030313 [handler.py:handle_request():146] handle_request: partial_history
+2024-04-09 13:26:27,903 DEBUG   SenderThread:3030313 [sender.py:send():379] send: history
+2024-04-09 13:26:27,903 DEBUG   SenderThread:3030313 [sender.py:send_request():406] send_request: summary_record
+2024-04-09 13:26:27,904 INFO    SenderThread:3030313 [sender.py:_save_file():1390] saving file wandb-summary.json with policy end
+2024-04-09 13:26:27,939 INFO    Thread-12 :3030313 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/feolalab/Desktop/guided-anomaly/wandb/run-20240409_132527-ch1gx6s7/files/wandb-summary.json
+2024-04-09 13:26:28,116 DEBUG   SystemMonitor:3030313 [system_monitor.py:_start():172] Starting system metrics aggregation loop
+2024-04-09 13:26:28,119 DEBUG   SenderThread:3030313 [sender.py:send():379] send: stats
+2024-04-09 13:26:28,599 DEBUG   HandlerThread:3030313 [handler.py:handle_request():146] handle_request: partial_history
+2024-04-09 13:26:28,600 DEBUG   SenderThread:3030313 [sender.py:send():379] send: history
+2024-04-09 13:26:28,600 DEBUG   SenderThread:3030313 [sender.py:send_request():406] send_request: summary_record
+2024-04-09 13:26:28,601 INFO    SenderThread:3030313 [sender.py:_save_file():1390] saving file wandb-summary.json with policy end
+2024-04-09 13:26:28,939 INFO    Thread-12 :3030313 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/feolalab/Desktop/guided-anomaly/wandb/run-20240409_132527-ch1gx6s7/files/wandb-summary.json
+2024-04-09 13:26:29,785 DEBUG   HandlerThread:3030313 [handler.py:handle_request():146] handle_request: partial_history
+2024-04-09 13:26:29,786 DEBUG   SenderThread:3030313 [sender.py:send():379] send: history
+2024-04-09 13:26:29,786 DEBUG   SenderThread:3030313 [sender.py:send_request():406] send_request: summary_record
+2024-04-09 13:26:29,787 INFO    SenderThread:3030313 [sender.py:_save_file():1390] saving file wandb-summary.json with policy end
+2024-04-09 13:26:29,940 INFO    Thread-12 :3030313 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/feolalab/Desktop/guided-anomaly/wandb/run-20240409_132527-ch1gx6s7/files/wandb-summary.json
+2024-04-09 13:26:30,379 DEBUG   HandlerThread:3030313 [handler.py:handle_request():146] handle_request: partial_history
+2024-04-09 13:26:30,380 DEBUG   SenderThread:3030313 [sender.py:send():379] send: history
+2024-04-09 13:26:30,381 DEBUG   SenderThread:3030313 [sender.py:send_request():406] send_request: summary_record
+2024-04-09 13:26:30,381 INFO    SenderThread:3030313 [sender.py:_save_file():1390] saving file wandb-summary.json with policy end
+2024-04-09 13:26:30,940 INFO    Thread-12 :3030313 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/feolalab/Desktop/guided-anomaly/wandb/run-20240409_132527-ch1gx6s7/files/wandb-summary.json
+2024-04-09 13:26:31,416 DEBUG   HandlerThread:3030313 [handler.py:handle_request():146] handle_request: partial_history
+2024-04-09 13:26:31,417 DEBUG   SenderThread:3030313 [sender.py:send():379] send: history
+2024-04-09 13:26:31,418 DEBUG   SenderThread:3030313 [sender.py:send_request():406] send_request: summary_record
+2024-04-09 13:26:31,418 INFO    SenderThread:3030313 [sender.py:_save_file():1390] saving file wandb-summary.json with policy end
+2024-04-09 13:26:31,911 DEBUG   HandlerThread:3030313 [handler.py:handle_request():146] handle_request: stop_status
+2024-04-09 13:26:31,912 DEBUG   SenderThread:3030313 [sender.py:send_request():406] send_request: stop_status
+2024-04-09 13:26:31,941 INFO    Thread-12 :3030313 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/feolalab/Desktop/guided-anomaly/wandb/run-20240409_132527-ch1gx6s7/files/wandb-summary.json
+2024-04-09 13:26:31,954 DEBUG   HandlerThread:3030313 [handler.py:handle_request():146] handle_request: internal_messages
+2024-04-09 13:26:31,973 DEBUG   HandlerThread:3030313 [handler.py:handle_request():146] handle_request: status_report
+2024-04-09 13:26:32,356 DEBUG   HandlerThread:3030313 [handler.py:handle_request():146] handle_request: partial_history
+2024-04-09 13:26:32,357 DEBUG   SenderThread:3030313 [sender.py:send():379] send: history
+2024-04-09 13:26:32,357 DEBUG   SenderThread:3030313 [sender.py:send_request():406] send_request: summary_record
+2024-04-09 13:26:32,358 INFO    SenderThread:3030313 [sender.py:_save_file():1390] saving file wandb-summary.json with policy end
+2024-04-09 13:26:32,941 INFO    Thread-12 :3030313 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/feolalab/Desktop/guided-anomaly/wandb/run-20240409_132527-ch1gx6s7/files/wandb-summary.json
+2024-04-09 13:26:33,357 DEBUG   HandlerThread:3030313 [handler.py:handle_request():146] handle_request: partial_history
+2024-04-09 13:26:33,358 DEBUG   SenderThread:3030313 [sender.py:send():379] send: history
+2024-04-09 13:26:33,358 DEBUG   SenderThread:3030313 [sender.py:send_request():406] send_request: summary_record
+2024-04-09 13:26:33,359 INFO    SenderThread:3030313 [sender.py:_save_file():1390] saving file wandb-summary.json with policy end
+2024-04-09 13:26:33,942 INFO    Thread-12 :3030313 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/feolalab/Desktop/guided-anomaly/wandb/run-20240409_132527-ch1gx6s7/files/wandb-summary.json
+2024-04-09 13:26:34,457 DEBUG   HandlerThread:3030313 [handler.py:handle_request():146] handle_request: partial_history
+2024-04-09 13:26:34,458 DEBUG   SenderThread:3030313 [sender.py:send():379] send: history
+2024-04-09 13:26:34,459 DEBUG   SenderThread:3030313 [sender.py:send_request():406] send_request: summary_record
+2024-04-09 13:26:34,459 INFO    SenderThread:3030313 [sender.py:_save_file():1390] saving file wandb-summary.json with policy end
+2024-04-09 13:26:34,942 INFO    Thread-12 :3030313 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/feolalab/Desktop/guided-anomaly/wandb/run-20240409_132527-ch1gx6s7/files/wandb-summary.json
+2024-04-09 13:26:35,373 DEBUG   HandlerThread:3030313 [handler.py:handle_request():146] handle_request: partial_history
+2024-04-09 13:26:35,374 DEBUG   SenderThread:3030313 [sender.py:send():379] send: history
+2024-04-09 13:26:35,375 DEBUG   SenderThread:3030313 [sender.py:send_request():406] send_request: summary_record
+2024-04-09 13:26:35,375 INFO    SenderThread:3030313 [sender.py:_save_file():1390] saving file wandb-summary.json with policy end
+2024-04-09 13:26:35,943 INFO    Thread-12 :3030313 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/feolalab/Desktop/guided-anomaly/wandb/run-20240409_132527-ch1gx6s7/files/wandb-summary.json
+2024-04-09 13:26:35,943 INFO    Thread-12 :3030313 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/feolalab/Desktop/guided-anomaly/wandb/run-20240409_132527-ch1gx6s7/files/output.log
+2024-04-09 13:26:36,206 DEBUG   HandlerThread:3030313 [handler.py:handle_request():146] handle_request: partial_history
+2024-04-09 13:26:36,207 DEBUG   SenderThread:3030313 [sender.py:send():379] send: history
+2024-04-09 13:26:36,207 DEBUG   SenderThread:3030313 [sender.py:send_request():406] send_request: summary_record
+2024-04-09 13:26:36,208 INFO    SenderThread:3030313 [sender.py:_save_file():1390] saving file wandb-summary.json with policy end
+2024-04-09 13:26:36,943 INFO    Thread-12 :3030313 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/feolalab/Desktop/guided-anomaly/wandb/run-20240409_132527-ch1gx6s7/files/wandb-summary.json
+2024-04-09 13:26:37,208 DEBUG   HandlerThread:3030313 [handler.py:handle_request():146] handle_request: status_report
+2024-04-09 13:26:37,287 DEBUG   HandlerThread:3030313 [handler.py:handle_request():146] handle_request: partial_history
+2024-04-09 13:26:37,288 DEBUG   SenderThread:3030313 [sender.py:send():379] send: history
+2024-04-09 13:26:37,288 DEBUG   SenderThread:3030313 [sender.py:send_request():406] send_request: summary_record
+2024-04-09 13:26:37,292 INFO    SenderThread:3030313 [sender.py:_save_file():1390] saving file wandb-summary.json with policy end
+2024-04-09 13:26:37,944 INFO    Thread-12 :3030313 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/feolalab/Desktop/guided-anomaly/wandb/run-20240409_132527-ch1gx6s7/files/wandb-summary.json
+2024-04-09 13:26:38,295 DEBUG   HandlerThread:3030313 [handler.py:handle_request():146] handle_request: partial_history
+2024-04-09 13:26:38,296 DEBUG   SenderThread:3030313 [sender.py:send():379] send: history
+2024-04-09 13:26:38,296 DEBUG   SenderThread:3030313 [sender.py:send_request():406] send_request: summary_record
+2024-04-09 13:26:38,297 INFO    SenderThread:3030313 [sender.py:_save_file():1390] saving file wandb-summary.json with policy end
+2024-04-09 13:26:38,944 INFO    Thread-12 :3030313 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/feolalab/Desktop/guided-anomaly/wandb/run-20240409_132527-ch1gx6s7/files/wandb-summary.json
+2024-04-09 13:26:39,037 DEBUG   HandlerThread:3030313 [handler.py:handle_request():146] handle_request: partial_history
+2024-04-09 13:26:39,038 DEBUG   SenderThread:3030313 [sender.py:send():379] send: history
+2024-04-09 13:26:39,038 DEBUG   SenderThread:3030313 [sender.py:send_request():406] send_request: summary_record
+2024-04-09 13:26:39,039 INFO    SenderThread:3030313 [sender.py:_save_file():1390] saving file wandb-summary.json with policy end
+2024-04-09 13:26:39,944 INFO    Thread-12 :3030313 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/feolalab/Desktop/guided-anomaly/wandb/run-20240409_132527-ch1gx6s7/files/wandb-summary.json
+2024-04-09 13:26:40,118 DEBUG   HandlerThread:3030313 [handler.py:handle_request():146] handle_request: partial_history
+2024-04-09 13:26:40,119 DEBUG   SenderThread:3030313 [sender.py:send():379] send: history
+2024-04-09 13:26:40,119 DEBUG   SenderThread:3030313 [sender.py:send_request():406] send_request: summary_record
+2024-04-09 13:26:40,120 INFO    SenderThread:3030313 [sender.py:_save_file():1390] saving file wandb-summary.json with policy end
+2024-04-09 13:26:40,945 INFO    Thread-12 :3030313 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/feolalab/Desktop/guided-anomaly/wandb/run-20240409_132527-ch1gx6s7/files/wandb-summary.json
+2024-04-09 13:26:41,037 DEBUG   HandlerThread:3030313 [handler.py:handle_request():146] handle_request: partial_history
+2024-04-09 13:26:41,038 DEBUG   SenderThread:3030313 [sender.py:send():379] send: history
+2024-04-09 13:26:41,039 DEBUG   SenderThread:3030313 [sender.py:send_request():406] send_request: summary_record
+2024-04-09 13:26:41,039 INFO    SenderThread:3030313 [sender.py:_save_file():1390] saving file wandb-summary.json with policy end
+2024-04-09 13:26:41,755 DEBUG   HandlerThread:3030313 [handler.py:handle_request():146] handle_request: partial_history
+2024-04-09 13:26:41,756 DEBUG   SenderThread:3030313 [sender.py:send():379] send: history
+2024-04-09 13:26:41,756 DEBUG   SenderThread:3030313 [sender.py:send_request():406] send_request: summary_record
+2024-04-09 13:26:41,756 INFO    SenderThread:3030313 [sender.py:_save_file():1390] saving file wandb-summary.json with policy end
+2024-04-09 13:26:41,945 INFO    Thread-12 :3030313 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/feolalab/Desktop/guided-anomaly/wandb/run-20240409_132527-ch1gx6s7/files/wandb-summary.json
+2024-04-09 13:26:42,757 DEBUG   HandlerThread:3030313 [handler.py:handle_request():146] handle_request: status_report
+2024-04-09 13:26:42,939 DEBUG   HandlerThread:3030313 [handler.py:handle_request():146] handle_request: partial_history
+2024-04-09 13:26:42,940 DEBUG   SenderThread:3030313 [sender.py:send():379] send: history
+2024-04-09 13:26:42,940 DEBUG   SenderThread:3030313 [sender.py:send_request():406] send_request: summary_record
+2024-04-09 13:26:42,940 INFO    SenderThread:3030313 [sender.py:_save_file():1390] saving file wandb-summary.json with policy end
+2024-04-09 13:26:42,946 INFO    Thread-12 :3030313 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/feolalab/Desktop/guided-anomaly/wandb/run-20240409_132527-ch1gx6s7/files/wandb-summary.json
+2024-04-09 13:26:43,724 DEBUG   HandlerThread:3030313 [handler.py:handle_request():146] handle_request: partial_history
+2024-04-09 13:26:43,725 DEBUG   SenderThread:3030313 [sender.py:send():379] send: history
+2024-04-09 13:26:43,725 DEBUG   SenderThread:3030313 [sender.py:send_request():406] send_request: summary_record
+2024-04-09 13:26:43,726 INFO    SenderThread:3030313 [sender.py:_save_file():1390] saving file wandb-summary.json with policy end
+2024-04-09 13:26:43,946 INFO    Thread-12 :3030313 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/feolalab/Desktop/guided-anomaly/wandb/run-20240409_132527-ch1gx6s7/files/wandb-summary.json
+2024-04-09 13:26:44,583 DEBUG   HandlerThread:3030313 [handler.py:handle_request():146] handle_request: partial_history
+2024-04-09 13:26:44,585 DEBUG   SenderThread:3030313 [sender.py:send():379] send: history
+2024-04-09 13:26:44,585 DEBUG   SenderThread:3030313 [sender.py:send_request():406] send_request: summary_record
+2024-04-09 13:26:44,585 INFO    SenderThread:3030313 [sender.py:_save_file():1390] saving file wandb-summary.json with policy end
+2024-04-09 13:26:44,947 INFO    Thread-12 :3030313 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/feolalab/Desktop/guided-anomaly/wandb/run-20240409_132527-ch1gx6s7/files/wandb-summary.json
+2024-04-09 13:26:45,773 DEBUG   HandlerThread:3030313 [handler.py:handle_request():146] handle_request: partial_history
+2024-04-09 13:26:45,774 DEBUG   SenderThread:3030313 [sender.py:send():379] send: history
+2024-04-09 13:26:45,774 DEBUG   SenderThread:3030313 [sender.py:send_request():406] send_request: summary_record
+2024-04-09 13:26:45,775 INFO    SenderThread:3030313 [sender.py:_save_file():1390] saving file wandb-summary.json with policy end
+2024-04-09 13:26:45,947 INFO    Thread-12 :3030313 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/feolalab/Desktop/guided-anomaly/wandb/run-20240409_132527-ch1gx6s7/files/wandb-summary.json
+2024-04-09 13:26:45,948 INFO    Thread-12 :3030313 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/feolalab/Desktop/guided-anomaly/wandb/run-20240409_132527-ch1gx6s7/files/output.log
+2024-04-09 13:26:46,556 DEBUG   HandlerThread:3030313 [handler.py:handle_request():146] handle_request: partial_history
+2024-04-09 13:26:46,557 DEBUG   SenderThread:3030313 [sender.py:send():379] send: history
+2024-04-09 13:26:46,557 DEBUG   SenderThread:3030313 [sender.py:send_request():406] send_request: summary_record
+2024-04-09 13:26:46,558 INFO    SenderThread:3030313 [sender.py:_save_file():1390] saving file wandb-summary.json with policy end
+2024-04-09 13:26:46,947 INFO    Thread-12 :3030313 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/feolalab/Desktop/guided-anomaly/wandb/run-20240409_132527-ch1gx6s7/files/wandb-summary.json
+2024-04-09 13:26:47,217 DEBUG   HandlerThread:3030313 [handler.py:handle_request():146] handle_request: stop_status
+2024-04-09 13:26:47,217 DEBUG   HandlerThread:3030313 [handler.py:handle_request():146] handle_request: internal_messages
+2024-04-09 13:26:47,218 DEBUG   SenderThread:3030313 [sender.py:send_request():406] send_request: stop_status
+2024-04-09 13:26:47,418 DEBUG   HandlerThread:3030313 [handler.py:handle_request():146] handle_request: partial_history
+2024-04-09 13:26:47,419 DEBUG   SenderThread:3030313 [sender.py:send():379] send: history
+2024-04-09 13:26:47,420 DEBUG   SenderThread:3030313 [sender.py:send_request():406] send_request: summary_record
+2024-04-09 13:26:47,422 INFO    SenderThread:3030313 [sender.py:_save_file():1390] saving file wandb-summary.json with policy end
+2024-04-09 13:26:47,948 INFO    Thread-12 :3030313 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/feolalab/Desktop/guided-anomaly/wandb/run-20240409_132527-ch1gx6s7/files/wandb-summary.json
+2024-04-09 13:26:48,423 DEBUG   HandlerThread:3030313 [handler.py:handle_request():146] handle_request: status_report
+2024-04-09 13:26:48,602 DEBUG   HandlerThread:3030313 [handler.py:handle_request():146] handle_request: partial_history
+2024-04-09 13:26:48,603 DEBUG   SenderThread:3030313 [sender.py:send():379] send: history
+2024-04-09 13:26:48,604 DEBUG   SenderThread:3030313 [sender.py:send_request():406] send_request: summary_record
+2024-04-09 13:26:48,604 INFO    SenderThread:3030313 [sender.py:_save_file():1390] saving file wandb-summary.json with policy end
+2024-04-09 13:26:48,948 INFO    Thread-12 :3030313 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/feolalab/Desktop/guided-anomaly/wandb/run-20240409_132527-ch1gx6s7/files/wandb-summary.json
+2024-04-09 13:26:49,295 DEBUG   HandlerThread:3030313 [handler.py:handle_request():146] handle_request: partial_history
+2024-04-09 13:26:49,296 DEBUG   SenderThread:3030313 [sender.py:send():379] send: history
+2024-04-09 13:26:49,296 DEBUG   SenderThread:3030313 [sender.py:send_request():406] send_request: summary_record
+2024-04-09 13:26:49,297 INFO    SenderThread:3030313 [sender.py:_save_file():1390] saving file wandb-summary.json with policy end
+2024-04-09 13:26:49,949 INFO    Thread-12 :3030313 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/feolalab/Desktop/guided-anomaly/wandb/run-20240409_132527-ch1gx6s7/files/wandb-summary.json
+2024-04-09 13:26:50,292 DEBUG   HandlerThread:3030313 [handler.py:handle_request():146] handle_request: partial_history
+2024-04-09 13:26:50,293 DEBUG   SenderThread:3030313 [sender.py:send():379] send: history
+2024-04-09 13:26:50,294 DEBUG   SenderThread:3030313 [sender.py:send_request():406] send_request: summary_record
+2024-04-09 13:26:50,294 INFO    SenderThread:3030313 [sender.py:_save_file():1390] saving file wandb-summary.json with policy end
+2024-04-09 13:26:50,949 INFO    Thread-12 :3030313 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/feolalab/Desktop/guided-anomaly/wandb/run-20240409_132527-ch1gx6s7/files/wandb-summary.json
+2024-04-09 13:26:51,437 DEBUG   HandlerThread:3030313 [handler.py:handle_request():146] handle_request: partial_history
+2024-04-09 13:26:51,439 DEBUG   SenderThread:3030313 [sender.py:send():379] send: history
+2024-04-09 13:26:51,439 DEBUG   SenderThread:3030313 [sender.py:send_request():406] send_request: summary_record
+2024-04-09 13:26:51,439 INFO    SenderThread:3030313 [sender.py:_save_file():1390] saving file wandb-summary.json with policy end
+2024-04-09 13:26:51,950 INFO    Thread-12 :3030313 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/feolalab/Desktop/guided-anomaly/wandb/run-20240409_132527-ch1gx6s7/files/wandb-summary.json
+2024-04-09 13:26:52,030 DEBUG   HandlerThread:3030313 [handler.py:handle_request():146] handle_request: partial_history
+2024-04-09 13:26:52,031 DEBUG   SenderThread:3030313 [sender.py:send():379] send: history
+2024-04-09 13:26:52,032 DEBUG   SenderThread:3030313 [sender.py:send_request():406] send_request: summary_record
+2024-04-09 13:26:52,032 INFO    SenderThread:3030313 [sender.py:_save_file():1390] saving file wandb-summary.json with policy end
+2024-04-09 13:26:52,950 INFO    Thread-12 :3030313 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/feolalab/Desktop/guided-anomaly/wandb/run-20240409_132527-ch1gx6s7/files/wandb-summary.json
+2024-04-09 13:26:53,064 DEBUG   HandlerThread:3030313 [handler.py:handle_request():146] handle_request: partial_history
+2024-04-09 13:26:53,065 DEBUG   SenderThread:3030313 [sender.py:send():379] send: history
+2024-04-09 13:26:53,066 DEBUG   SenderThread:3030313 [sender.py:send_request():406] send_request: summary_record
+2024-04-09 13:26:53,066 INFO    SenderThread:3030313 [sender.py:_save_file():1390] saving file wandb-summary.json with policy end
+2024-04-09 13:26:53,951 INFO    Thread-12 :3030313 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/feolalab/Desktop/guided-anomaly/wandb/run-20240409_132527-ch1gx6s7/files/wandb-summary.json
+2024-04-09 13:26:53,951 INFO    Thread-12 :3030313 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/feolalab/Desktop/guided-anomaly/wandb/run-20240409_132527-ch1gx6s7/files/output.log
+2024-04-09 13:26:53,994 DEBUG   HandlerThread:3030313 [handler.py:handle_request():146] handle_request: partial_history
+2024-04-09 13:26:53,995 DEBUG   SenderThread:3030313 [sender.py:send():379] send: history
+2024-04-09 13:26:53,995 DEBUG   SenderThread:3030313 [sender.py:send_request():406] send_request: summary_record
+2024-04-09 13:26:53,996 DEBUG   HandlerThread:3030313 [handler.py:handle_request():146] handle_request: status_report
+2024-04-09 13:26:53,996 INFO    SenderThread:3030313 [sender.py:_save_file():1390] saving file wandb-summary.json with policy end
+2024-04-09 13:26:54,704 DEBUG   HandlerThread:3030313 [handler.py:handle_request():146] handle_request: partial_history
+2024-04-09 13:26:54,705 DEBUG   SenderThread:3030313 [sender.py:send():379] send: history
+2024-04-09 13:26:54,706 DEBUG   SenderThread:3030313 [sender.py:send_request():406] send_request: summary_record
+2024-04-09 13:26:54,706 INFO    SenderThread:3030313 [sender.py:_save_file():1390] saving file wandb-summary.json with policy end
+2024-04-09 13:26:54,951 INFO    Thread-12 :3030313 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/feolalab/Desktop/guided-anomaly/wandb/run-20240409_132527-ch1gx6s7/files/wandb-summary.json
+2024-04-09 13:26:55,893 DEBUG   HandlerThread:3030313 [handler.py:handle_request():146] handle_request: partial_history
+2024-04-09 13:26:55,894 DEBUG   SenderThread:3030313 [sender.py:send():379] send: history
+2024-04-09 13:26:55,894 DEBUG   SenderThread:3030313 [sender.py:send_request():406] send_request: summary_record
+2024-04-09 13:26:55,895 INFO    SenderThread:3030313 [sender.py:_save_file():1390] saving file wandb-summary.json with policy end
+2024-04-09 13:26:55,952 INFO    Thread-12 :3030313 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/feolalab/Desktop/guided-anomaly/wandb/run-20240409_132527-ch1gx6s7/files/wandb-summary.json
+2024-04-09 13:26:56,701 DEBUG   HandlerThread:3030313 [handler.py:handle_request():146] handle_request: partial_history
+2024-04-09 13:26:56,703 DEBUG   SenderThread:3030313 [sender.py:send():379] send: history
+2024-04-09 13:26:56,703 DEBUG   SenderThread:3030313 [sender.py:send_request():406] send_request: summary_record
+2024-04-09 13:26:56,704 INFO    SenderThread:3030313 [sender.py:_save_file():1390] saving file wandb-summary.json with policy end
+2024-04-09 13:26:56,952 INFO    Thread-12 :3030313 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/feolalab/Desktop/guided-anomaly/wandb/run-20240409_132527-ch1gx6s7/files/wandb-summary.json
+2024-04-09 13:26:57,536 DEBUG   HandlerThread:3030313 [handler.py:handle_request():146] handle_request: partial_history
+2024-04-09 13:26:57,538 DEBUG   SenderThread:3030313 [sender.py:send():379] send: history
+2024-04-09 13:26:57,538 DEBUG   SenderThread:3030313 [sender.py:send_request():406] send_request: summary_record
+2024-04-09 13:26:57,544 INFO    SenderThread:3030313 [sender.py:_save_file():1390] saving file wandb-summary.json with policy end
+2024-04-09 13:26:57,953 INFO    Thread-12 :3030313 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/feolalab/Desktop/guided-anomaly/wandb/run-20240409_132527-ch1gx6s7/files/wandb-summary.json
+2024-04-09 13:26:58,121 DEBUG   SenderThread:3030313 [sender.py:send():379] send: stats
+2024-04-09 13:26:58,721 DEBUG   HandlerThread:3030313 [handler.py:handle_request():146] handle_request: partial_history
+2024-04-09 13:26:58,722 DEBUG   SenderThread:3030313 [sender.py:send():379] send: history
+2024-04-09 13:26:58,722 DEBUG   SenderThread:3030313 [sender.py:send_request():406] send_request: summary_record
+2024-04-09 13:26:58,723 INFO    SenderThread:3030313 [sender.py:_save_file():1390] saving file wandb-summary.json with policy end
+2024-04-09 13:26:58,953 INFO    Thread-12 :3030313 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/feolalab/Desktop/guided-anomaly/wandb/run-20240409_132527-ch1gx6s7/files/wandb-summary.json
+2024-04-09 13:26:59,400 DEBUG   HandlerThread:3030313 [handler.py:handle_request():146] handle_request: partial_history
+2024-04-09 13:26:59,401 DEBUG   SenderThread:3030313 [sender.py:send():379] send: history
+2024-04-09 13:26:59,402 DEBUG   SenderThread:3030313 [sender.py:send_request():406] send_request: summary_record
+2024-04-09 13:26:59,402 DEBUG   HandlerThread:3030313 [handler.py:handle_request():146] handle_request: status_report
+2024-04-09 13:26:59,403 INFO    SenderThread:3030313 [sender.py:_save_file():1390] saving file wandb-summary.json with policy end
+2024-04-09 13:26:59,954 INFO    Thread-12 :3030313 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/feolalab/Desktop/guided-anomaly/wandb/run-20240409_132527-ch1gx6s7/files/wandb-summary.json
+2024-04-09 13:27:00,153 INFO    memory    :3030313 [interfaces.py:monitor():140] Process proc.memory.rssMB has exited.
+2024-04-09 13:27:00,153 DEBUG   SystemMonitor:3030313 [system_monitor.py:_start():179] Finished system metrics aggregation loop
+2024-04-09 13:27:00,154 DEBUG   SystemMonitor:3030313 [system_monitor.py:_start():183] Publishing last batch of metrics
+2024-04-09 13:27:00,157 DEBUG   SenderThread:3030313 [sender.py:send():379] send: stats
+2024-04-09 13:27:01,119 INFO    MainThread:3030313 [internal.py:handle_exit():76] Internal process exited

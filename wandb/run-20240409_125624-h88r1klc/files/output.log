@@ -1,0 +1,30 @@
+Traceback (most recent call last):
+  File "/home/feolalab/anaconda3/envs/guided-anomaly/lib/python3.8/site-packages/wandb/sdk/wandb_config.py", line 162, in __getattr__
+    return self.__getitem__(key)
+  File "/home/feolalab/anaconda3/envs/guided-anomaly/lib/python3.8/site-packages/wandb/sdk/wandb_config.py", line 130, in __getitem__
+    return self._items[key]
+KeyError: 'lr'
+The above exception was the direct cause of the following exception:
+Traceback (most recent call last):
+  File "scripts/classifier_train.py", line 276, in <module>
+    main()
+  File "scripts/classifier_train.py", line 64, in main
+    args.lr=wandb.config.lr
+  File "/home/feolalab/anaconda3/envs/guided-anomaly/lib/python3.8/site-packages/wandb/sdk/wandb_config.py", line 164, in __getattr__
+    raise AttributeError(
+AttributeError: <class 'wandb.sdk.wandb_config.Config'> object has no attribute 'lr'
+Traceback (most recent call last):
+  File "/home/feolalab/anaconda3/envs/guided-anomaly/lib/python3.8/site-packages/wandb/sdk/wandb_config.py", line 162, in __getattr__
+    return self.__getitem__(key)
+  File "/home/feolalab/anaconda3/envs/guided-anomaly/lib/python3.8/site-packages/wandb/sdk/wandb_config.py", line 130, in __getitem__
+    return self._items[key]
+KeyError: 'lr'
+The above exception was the direct cause of the following exception:
+Traceback (most recent call last):
+  File "scripts/classifier_train.py", line 276, in <module>
+    main()
+  File "scripts/classifier_train.py", line 64, in main
+    args.lr=wandb.config.lr
+  File "/home/feolalab/anaconda3/envs/guided-anomaly/lib/python3.8/site-packages/wandb/sdk/wandb_config.py", line 164, in __getattr__
+    raise AttributeError(
+AttributeError: <class 'wandb.sdk.wandb_config.Config'> object has no attribute 'lr'
