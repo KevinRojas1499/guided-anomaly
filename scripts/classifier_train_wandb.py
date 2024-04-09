@@ -37,7 +37,7 @@ sweep_config = {
         'values': ['32,16,8', '32,16', '16,8']
     },
     'classifier_depth': {
-        'min': 2,
+        'min': 1,
         'max': 4,
         'distribution': 'int_uniform'
     },
