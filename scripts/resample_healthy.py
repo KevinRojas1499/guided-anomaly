@@ -11,6 +11,7 @@ import torch as th
 import torch.distributed as dist
 import torch.nn.functional as F
 from PIL import Image
+from math import ceil
 
 
 from guided_diffusion import dist_util, logger
@@ -68,13 +69,16 @@ def main():
     all_images = []
     all_labels = []
     print(f' Numberr of classes {NUM_CLASSES}')
-    while len(all_images) * args.batch_size < args.num_samples:
+    healthy_images = np.load(args.diseased_images_path)['arr_0']
+    healthy_images = th.tensor(healthy_images, device=dist_util.dev()
+                                ,dtype=th.float).permute(0,3,1,2)
+    healthy_images = (healthy_images/127.5 - 1)
+    num_samples = healthy_images.shape[0]
+    healthy_images_batch = healthy_images.tensor_split(ceil(num_samples/args.batch_size))
+    idx = 0
+    for healthy_images in healthy_images_batch:
         model_kwargs = {}
 
-        healthy_images = np.load(args.diseased_images_path)['arr_0']
-        healthy_images = th.tensor(healthy_images, device=dist_util.dev()
-                                   ,dtype=th.float).permute(0,3,1,2)
-        healthy_images = (healthy_images/127.5 - 1)
         sample_fn = diffusion.ddim_sample_loop
         noise = sample_fn(
             model, # We don't need condition here
@@ -85,7 +89,7 @@ def main():
             initial_cond=healthy_images,
             reverse=True
         )
-        classes = th.ones(size=(args.batch_size,), device=dist_util.dev(),dtype=th.long) * 3 # This 3 is hardcoding healthy
+        classes = th.ones(size=(healthy_images.shape[0],), device=dist_util.dev(),dtype=th.long) * 3 # This 3 is hardcoding healthy
         print(f'Selected classes {classes.cpu().detach().numpy()}')
         model_kwargs["y"] = classes
 
@@ -110,7 +114,6 @@ def main():
         dist.all_gather(gathered_labels, classes)
         all_labels.extend([labels.cpu().numpy() for labels in gathered_labels])
         # logger.log(f"created {len(all_images) * args.batch_size} samples")
-        break
 
     arr = np.concatenate(all_images, axis=0)
     label_arr = np.concatenate(all_labels, axis=0)
