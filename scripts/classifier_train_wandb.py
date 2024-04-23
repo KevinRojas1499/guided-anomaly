@@ -64,15 +64,18 @@ def set_annealed_lr(opt, base_lr, frac_done):
 
 
 def save_model(mp_trainer, opt, step):
-    print(f'Trying to save {logger.get_dir()}')
+    path = os.path.join(logger.get_dir(), wandb.sweep_id, wandb.run.name)
+    if not os.path.exists(path):
+        os.makedirs(path)
+    print(f'Trying to save {path}')
     
     if dist.get_rank() == 0:
         print(logger.get_dir())
         th.save(
             mp_trainer.master_params_to_state_dict(mp_trainer.master_params),
-            os.path.join(logger.get_dir(), f"model{step:06d}.pt"),
+            os.path.join(path, f"model{step:06d}.pt"),
         )
-        th.save(opt.state_dict(), os.path.join(logger.get_dir(), f"opt{step:06d}.pt"))
+        th.save(opt.state_dict(), os.path.join(path, f"opt{step:06d}.pt"))
 
 
 def compute_top_k(logits, labels, k, reduction="mean"):
@@ -223,10 +226,10 @@ def main():
             logits = model(sub_batch, timesteps=sub_t)
             loss = F.cross_entropy(logits, sub_labels, reduction="none")
 
-            wandb.log({"q1_loss":loss[1].detach()})
-            wandb.log({"q2_loss":loss[2].detach()})
-            wandb.log({"q3_loss":loss[3].detach()})
-            wandb.log({"q0_loss":loss[0].detach()})
+            wandb.log({"q1_loss":loss[1].detach(),
+                    'q2_loss':loss[2].detach(),
+                    'q3_loss':loss[3].detach(),
+                    'q0_loss':loss[0].detach()})
 
             losses = {}
             losses[f"{prefix}_loss"] = loss.detach()
