@@ -115,6 +115,7 @@ def create_argparser():
     defaults.update(classifier_and_diffusion_defaults())
     parser = argparse.ArgumentParser()
     parser.add_argument('--log_dir',type=str)
+    parser.add_argument('--fine_tuning',type=bool)
     add_dict_to_argparser(parser, defaults)
     return parser
 
@@ -147,6 +148,10 @@ def main():
         schedule_sampler = create_named_schedule_sampler(
             args.schedule_sampler, diffusion
         )
+    if args.fine_tuning: 
+        for name, param in model.named_parameters():
+            if name[:3]  != 'out':
+                param.requires_grad = False
 
     resume_step = 0
     if args.resume_checkpoint:
@@ -282,10 +287,10 @@ def main():
 
 
 
-wandb.agent(sweep_id, function=main, count=15)
+# wandb.agent(sweep_id, function=main, count=15)
 
 
 
 
-#if __name__ == "__main__":
- #   main()
+if __name__ == "__main__":
+   main()

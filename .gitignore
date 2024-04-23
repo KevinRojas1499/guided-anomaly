@@ -12,4 +12,4 @@ logging/
 *.png
 *.txt
 *.csv
-
+wandb
