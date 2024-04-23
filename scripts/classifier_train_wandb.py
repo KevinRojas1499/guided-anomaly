@@ -223,7 +223,10 @@ def main():
             logits = model(sub_batch, timesteps=sub_t)
             loss = F.cross_entropy(logits, sub_labels, reduction="none")
 
-            wandb.log({"q1":loss[0].detach()})
+            wandb.log({"q1_loss":loss[1].detach()})
+            wandb.log({"q2_loss":loss[2].detach()})
+            wandb.log({"q3_loss":loss[3].detach()})
+            wandb.log({"q0_loss":loss[0].detach()})
 
             losses = {}
             losses[f"{prefix}_loss"] = loss.detach()
@@ -276,7 +279,7 @@ def main():
 
 
 
-wandb.agent(sweep_id, function=main, count=2)
+wandb.agent(sweep_id, function=main, count=15)
 
 
 

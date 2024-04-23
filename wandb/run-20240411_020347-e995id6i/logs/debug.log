@@ -1,0 +1,37 @@
+2024-04-11 02:03:47,296 INFO    Thread-30 :3127036 [wandb_setup.py:_flush():76] Current SDK version is 0.16.6
+2024-04-11 02:03:47,297 INFO    Thread-30 :3127036 [wandb_setup.py:_flush():76] Configure stats pid to 3127036
+2024-04-11 02:03:47,297 INFO    Thread-30 :3127036 [wandb_setup.py:_flush():76] Loading settings from /home/feolalab/.config/wandb/settings
+2024-04-11 02:03:47,297 INFO    Thread-30 :3127036 [wandb_setup.py:_flush():76] Loading settings from /home/feolalab/Desktop/guided-anomaly/wandb/settings
+2024-04-11 02:03:47,297 INFO    Thread-30 :3127036 [wandb_setup.py:_flush():76] Loading settings from environment variables: {'project': 'Diffusion', 'entity': 'grodrguez3', 'root_dir': '/home/feolalab/Desktop/guided-anomaly', 'run_id': 'e995id6i', 'sweep_param_path': '/home/feolalab/Desktop/guided-anomaly/wandb/sweep-c6pav170/config-e995id6i.yaml', 'sweep_id': 'c6pav170'}
+2024-04-11 02:03:47,297 INFO    Thread-30 :3127036 [wandb_setup.py:_flush():76] Applying setup settings: {'_disable_service': False}
+2024-04-11 02:03:47,297 INFO    Thread-30 :3127036 [wandb_setup.py:_flush():76] Inferring run settings from compute environment: {'program_relpath': 'scripts/classifier_train_wandb.py', 'program_abspath': '/home/feolalab/Desktop/guided-anomaly/scripts/classifier_train_wandb.py', 'program': 'scripts/classifier_train_wandb.py'}
+2024-04-11 02:03:47,297 INFO    Thread-30 :3127036 [wandb_setup.py:_flush():76] Applying login settings: {}
+2024-04-11 02:03:47,297 INFO    Thread-30 :3127036 [wandb_init.py:_log_setup():521] Logging user logs to /home/feolalab/Desktop/guided-anomaly/wandb/run-20240411_020347-e995id6i/logs/debug.log
+2024-04-11 02:03:47,297 INFO    Thread-30 :3127036 [wandb_init.py:_log_setup():522] Logging internal logs to /home/feolalab/Desktop/guided-anomaly/wandb/run-20240411_020347-e995id6i/logs/debug-internal.log
+2024-04-11 02:03:47,298 INFO    Thread-30 :3127036 [wandb_init.py:init():561] calling init triggers
+2024-04-11 02:03:47,298 INFO    Thread-30 :3127036 [wandb_init.py:init():568] wandb.init called with sweep_config: {'classifier_attention_resolutions': '16,8', 'classifier_depth': 4, 'lr': 0.002374817350829796, 'weight_decay': 0.01}
+config: {}
+2024-04-11 02:03:47,298 INFO    Thread-30 :3127036 [wandb_init.py:init():611] starting backend
+2024-04-11 02:03:47,298 INFO    Thread-30 :3127036 [wandb_init.py:init():615] setting up manager
+2024-04-11 02:03:47,309 INFO    Thread-30 :3127036 [backend.py:_multiprocessing_setup():105] multiprocessing start_methods=fork,spawn,forkserver, using: spawn
+2024-04-11 02:03:47,310 INFO    Thread-30 :3127036 [wandb_init.py:init():623] backend started and connected
+2024-04-11 02:03:47,326 INFO    Thread-30 :3127036 [wandb_run.py:_config_callback():1347] config_cb None None {'classifier_attention_resolutions': '16,8', 'classifier_depth': 4, 'lr': 0.002374817350829796, 'weight_decay': 0.01}
+2024-04-11 02:03:47,328 INFO    Thread-30 :3127036 [wandb_init.py:init():715] updated telemetry
+2024-04-11 02:03:47,434 INFO    Thread-30 :3127036 [wandb_init.py:init():748] communicating run to backend with 90.0 second timeout
+2024-04-11 02:03:47,622 INFO    Thread-30 :3127036 [wandb_run.py:_on_init():2357] communicating current version
+2024-04-11 02:03:47,685 INFO    Thread-30 :3127036 [wandb_run.py:_on_init():2366] got version response 
+2024-04-11 02:03:47,686 INFO    Thread-30 :3127036 [wandb_init.py:init():799] starting run threads in backend
+2024-04-11 02:03:51,001 INFO    Thread-30 :3127036 [wandb_run.py:_console_start():2335] atexit reg
+2024-04-11 02:03:51,002 INFO    Thread-30 :3127036 [wandb_run.py:_redirect():2190] redirect: wrap_raw
+2024-04-11 02:03:51,002 INFO    Thread-30 :3127036 [wandb_run.py:_redirect():2255] Wrapping output streams.
+2024-04-11 02:03:51,002 INFO    Thread-30 :3127036 [wandb_run.py:_redirect():2280] Redirects installed.
+2024-04-11 02:03:51,003 INFO    Thread-30 :3127036 [wandb_init.py:init():842] run started, returning control to user process
+2024-04-11 03:08:02,894 ERROR   Thread-1  :3127036 [internal_api.py:execute():373] 500 response executing GraphQL.
+2024-04-11 03:08:02,894 ERROR   Thread-1  :3127036 [internal_api.py:execute():374] {"errors":[{"message":"context deadline exceeded"}]}
+2024-04-11 03:38:41,298 INFO    Thread-30 :3127036 [wandb_run.py:_finish():2064] finishing run grodrguez3/Diffusion/e995id6i
+2024-04-11 03:38:41,298 INFO    Thread-30 :3127036 [wandb_run.py:_atexit_cleanup():2304] got exitcode: 0
+2024-04-11 03:38:41,298 INFO    Thread-30 :3127036 [wandb_run.py:_restore():2287] restore
+2024-04-11 03:38:41,298 INFO    Thread-30 :3127036 [wandb_run.py:_restore():2293] restore done
+2024-04-11 03:38:46,672 INFO    Thread-30 :3127036 [wandb_run.py:_footer_history_summary_info():3936] rendering history
+2024-04-11 03:38:46,674 INFO    Thread-30 :3127036 [wandb_run.py:_footer_history_summary_info():3968] rendering summary
+2024-04-11 03:38:46,685 INFO    Thread-30 :3127036 [wandb_run.py:_footer_sync_info():3895] logging synced files
