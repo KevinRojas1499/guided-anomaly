@@ -52,8 +52,8 @@ sweep_config = {
 }
             }
 
-sweep_id = wandb.sweep(sweep_config, project="Diffusion")
-print(sweep_id)
+sweep_id = 1 #wandb.sweep(sweep_config, project="Diffusion")
+#print(sweep_id)
 
 
 
@@ -64,7 +64,10 @@ def set_annealed_lr(opt, base_lr, frac_done):
 
 
 def save_model(mp_trainer, opt, step):
-    path = os.path.join(logger.get_dir(), wandb.sweep_id, wandb.run.name)
+    try: 
+        path = os.path.join(logger.get_dir(), wandb.sweep_id, wandb.run.name)
+    except: 
+        path = os.path.join(logger.get_dir(),  wandb.run.name)
     if not os.path.exists(path):
         os.makedirs(path)
     print(f'Trying to save {path}')
@@ -230,21 +233,34 @@ def main():
         ):
             logits = model(sub_batch, timesteps=sub_t)
             loss = F.cross_entropy(logits, sub_labels, reduction="none")
+            #print(loss.shape)
 
-            wandb.log({"q1_loss":loss[1].detach(),
-                    'q2_loss':loss[2].detach(),
-                    'q3_loss':loss[3].detach(),
-                    'q0_loss':loss[0].detach()})
+
+            wandb.log({"class 1 loss":loss[1].detach(),
+                    'class 2 loss':loss[2].detach(),
+                    'class 3 loss':loss[3].detach(),
+                    'class 0 loss':loss[0].detach()})
+            
+            logger.logkv("class 0 loss",loss[0].detach())
+            logger.logkv("class 1 loss",loss[1].detach())
+            logger.logkv("class 2 loss",loss[2].detach())
+            logger.logkv("class 3 loss",loss[3].detach())
+            
 
             losses = {}
             losses[f"{prefix}_loss"] = loss.detach()
             losses[f"{prefix}_acc@1"] = compute_top_k(
                 logits, sub_labels, k=1, reduction="none"
             )
-            losses[f"{prefix}_acc@5"] = compute_top_k(
-                logits, sub_labels, k=5, reduction="none"
-            )
+           # losses[f"{prefix}_acc@5"] = compute_top_k(
+              #  logits, sub_labels, k=5, reduction="none"
+           # )
             log_loss_dict(diffusion, sub_t, losses)
+
+           # wandb.log({"q1_acc":losses[f"{prefix}_acc@1"][1],
+           # 'q2_acc':losses[f"{prefix}_acc@1"][2],
+           # 'q3_acc':losses[f"{prefix}_acc@1"][3],
+           #∫ 'q0_acc':losses[f"{prefix}_acc@1"][0]})
             del losses
             loss = loss.mean()
             if loss.requires_grad:

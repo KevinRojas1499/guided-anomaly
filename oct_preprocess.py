@@ -21,7 +21,7 @@ def copy_all_files_to_new_folder(source_dir, target_dir_name):
                 shutil.copy2(file_path, target_file_path)
                 #print(f”Copied {file} to {target_dir_name} folder”)
 # Specify the directory where subfolders are located
-source_directory = 'OCT_DATA/OCT2017/val' # Replace with your source directory path
-target_directory = 'OCT_DATA/processed/val/'
+source_directory = '/home/feolalab/Downloads/archive/OCT2017 /val' # Replace with your source directory path
+target_directory = './preprocessed_new/val'
 # Run the function
 copy_all_files_to_new_folder(source_directory,target_directory)
