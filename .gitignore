@@ -13,3 +13,5 @@ logging/
 *.txt
 *.csv
 wandb
+archive(1)/
+*.zip

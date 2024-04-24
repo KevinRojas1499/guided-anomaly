@@ -166,7 +166,9 @@ def main():
 
     if args.fine_tuning: 
         for name, param in model.named_parameters():
-            if name[:3]  != 'out':
+            if name[:3]  == 'out' or name[:14] == 'middle_block.2':
+                continue
+            else:
                 param.requires_grad = False
 
     # Needed for creating correct EMAs and fp16 parameters.
