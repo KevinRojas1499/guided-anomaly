@@ -129,10 +129,10 @@ def main():
     run = wandb.init()
     #logger.log(args)
 
-    args.lr=wandb.config.lr
-    args.weight_decay=wandb.config.weight_decay
-    args.classifier_depth=wandb.config.classifier_depth
-    args.classifier_attention_resolutions=wandb.config.classifier_attention_resolutions
+    # args.lr=wandb.config.lr
+    # args.weight_decay=wandb.config.weight_decay
+    # args.classifier_depth=wandb.config.classifier_depth
+    # args.classifier_attention_resolutions=wandb.config.classifier_attention_resolutions
 
     logger.log(args)
     dist_util.setup_dist()
@@ -148,11 +148,6 @@ def main():
         schedule_sampler = create_named_schedule_sampler(
             args.schedule_sampler, diffusion
         )
-    if args.fine_tuning: 
-        for name, param in model.named_parameters():
-            if name[:3]  != 'out':
-                param.requires_grad = False
-
     resume_step = 0
     if args.resume_checkpoint:
         resume_step = parse_resume_step_from_filename(args.resume_checkpoint)
@@ -165,6 +160,11 @@ def main():
                     args.resume_checkpoint, map_location=dist_util.dev()
                 )
             )
+
+    if args.fine_tuning: 
+        for name, param in model.named_parameters():
+            if name[:3]  != 'out':
+                param.requires_grad = False
 
     # Needed for creating correct EMAs and fp16 parameters.
     dist_util.sync_params(model.parameters())
@@ -202,7 +202,7 @@ def main():
 
     logger.log(f"creating optimizer...")
     opt = AdamW(mp_trainer.master_params, lr=args.lr, weight_decay=args.weight_decay)
-    if args.resume_checkpoint:
+    if args.resume_checkpoint and not args.fine_tuning:
         opt_checkpoint = bf.join(
             bf.dirname(args.resume_checkpoint), f"opt{resume_step:06}.pt"
         )
