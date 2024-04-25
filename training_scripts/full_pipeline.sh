@@ -1,4 +1,4 @@
-NUM_SAMPLES=30
+NUM_SAMPLES=10
 BATCH_SIZE=10
 MODEL_FLAGS="--image_size 128 --num_channels 128 --num_res_blocks 2"
 CLASSIFIER_FLAGS="--image_size 128 --classifier_attention_resolutions 16,8 --classifier_depth 2 --classifier_width 128 --classifier_pool attention --classifier_resblock_updown True --classifier_use_scale_shift_norm True"

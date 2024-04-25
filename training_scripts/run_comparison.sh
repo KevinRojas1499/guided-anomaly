@@ -1,0 +1,3 @@
+CLASSIFIER_FLAGS="--image_size 128 --classifier_attention_resolutions 32,16,8 --classifier_depth 2 --classifier_width 128 --classifier_pool attention --classifier_resblock_updown True --classifier_use_scale_shift_norm True"
+python3 full_comparison.py --image_path 'OCT2017 /test/CNV' --outdir images/samples_healthy.npz --num_images 8 \
+    --classifier_path checkpoints_classifier/model000999.pt $CLASSIFIER_FLAGS
