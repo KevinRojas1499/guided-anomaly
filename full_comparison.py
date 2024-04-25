@@ -75,7 +75,7 @@ args = p.parse_args()
 print(args)
 images_diseased = from_img_to_numpy(args)
 os.system('bash training_scripts/make_healthy.sh')
-args.image_path = 'images/samples_10x128x128x3.npz'
+args.image_path = 'images/samples_healthy.npz'
 images_ = np.load(args.image_path)
 images_healthy = images_['arr_0']
 classifier = get_classifier(args)
