@@ -25,9 +25,7 @@ from guided_diffusion.script_util import (
 from guided_diffusion.train_util import parse_resume_step_from_filename, log_loss_dict
 
 
-def main():
-    args = create_argparser().parse_args()
-
+def main(args):
     dist_util.setup_dist()
     print(args.log_dir)
     logger.configure(args.log_dir)
@@ -228,4 +226,5 @@ def create_argparser():
 
 
 if __name__ == "__main__":
-    main()
+    args = create_argparser().parse_args()
+    main(args)

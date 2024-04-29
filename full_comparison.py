@@ -7,6 +7,7 @@ from PIL import Image
 import argparse
 import matplotlib.pyplot as plt
 
+import scripts.resample_healthy 
 from guided_diffusion import dist_util, logger
 from scripts.classifier_sample import create_argparser
 from guided_diffusion.script_util import (
@@ -35,15 +36,16 @@ label_to_disease = {
 
 def from_img_to_numpy(args):
     # Function to load PNG files as NumPy arrays
-    png_files = sorted([f for f in os.listdir(args.image_path) if f.endswith('.jpeg')])
+    images_path = args.diseased_images_path
+    png_files = sorted([f for f in os.listdir(images_path) if f.endswith('.jpeg')])
     images = []
     for file in png_files:
-        image_path = os.path.join(args.image_path, file)
+        image_path = os.path.join(images_path, file)
         image = Image.open(image_path)
         images.append(np.array(image.convert('RGB').resize((128,128))))
         if len(images) == args.num_images:
             break
-    np.savez(args.outdir, images)
+    np.savez(args.log_dir, images)
     return np.array(images)
 
 def get_classifier(args):
@@ -71,27 +73,28 @@ def to_torch_im(images_healthy):
     return images_healthy_torch
 
 
-args = p.parse_args()
-print(args)
-images_diseased = from_img_to_numpy(args)
-os.system('bash training_scripts/make_healthy.sh')
-args.image_path = 'images/samples_healthy.npz'
-images_ = np.load(args.image_path)
-images_healthy = images_['arr_0']
-classifier = get_classifier(args)
+def main(args):
+    print(args)
+    images_diseased = from_img_to_numpy(args)
+    images_diseased_torch = to_torch_im(images_diseased)
+    images_healthy = scripts.resample_healthy.main(args,images_diseased_torch)
+    # os.system('bash training_scripts/make_healthy.sh')
+    # args.image_path = 'images/samples_healthy.npz'
+    # images_ = np.load(args.image_path)
+    # images_healthy = images_['arr_0']
+    classifier = get_classifier(args)
 
-images_healthy_torch = to_torch_im(images_healthy)
-images_diseased_torch = to_torch_im(images_diseased)
-labels_healthy = classifier(images_healthy_torch).cpu().detach().numpy()
-labels_diseased = classifier(images_diseased_torch).cpu().detach().numpy()
+    images_healthy_torch = to_torch_im(images_healthy)
+    labels_healthy = classifier(images_healthy_torch).cpu().detach().numpy()
+    labels_diseased = classifier(images_diseased_torch).cpu().detach().numpy()
 
-print(labels_healthy)
-print(labels_diseased)
-for i, (im_dis, im_he) in enumerate(zip(images_diseased, images_healthy)):
-    fig, ax = plt.subplots(1,3)
-    ax[0].imshow(im_dis)
-    ax[0].set_title(label_to_disease[labels_diseased[i]])
-    ax[1].imshow(im_he)
-    ax[1].set_title(label_to_disease[labels_healthy[i]])
-    ax[2].imshow(im_he-im_dis)
-    fig.savefig(f'images/comparison/{i}.png')
+    print(labels_healthy)
+    print(labels_diseased)
+    for i, (im_dis, im_he) in enumerate(zip(images_diseased, images_healthy)):
+        fig, ax = plt.subplots(1,3)
+        ax[0].imshow(im_dis)
+        ax[0].set_title(label_to_disease[labels_diseased[i]])
+        ax[1].imshow(im_he)
+        ax[1].set_title(label_to_disease[labels_healthy[i]])
+        ax[2].imshow(im_he-im_dis)
+        fig.savefig(f'images/comparison/{i}.png')

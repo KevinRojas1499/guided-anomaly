@@ -23,8 +23,7 @@ from guided_diffusion.script_util import (
 )
 
 
-def main():
-    args = create_argparser().parse_args()
+def main(args):
     dist_util.setup_dist()
     logger.configure(args.log_dir)
     logger.log("creating model and diffusion...")
@@ -129,4 +128,5 @@ def create_argparser():
 
 
 if __name__ == "__main__":
-    main()
+    args = create_argparser().parse_args()
+    main(args)

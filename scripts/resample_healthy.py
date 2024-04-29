@@ -26,8 +26,8 @@ from guided_diffusion.script_util import (
 )
 
 
-def main():
-    args = create_argparser().parse_args()
+def main(args, diseased_images=None):
+    # The diseased images can be none if there is a .npz file with the images in args.diseased_images
     dist_util.setup_dist()
     logger.configure(args.log_dir)
     logger.log("creating model and diffusion...")
@@ -69,34 +69,35 @@ def main():
     all_images = []
     all_labels = []
     print(f' Numberr of classes {NUM_CLASSES}')
-    healthy_images = np.load(args.diseased_images_path)['arr_0']
-    healthy_images = th.tensor(healthy_images, device=dist_util.dev()
-                                ,dtype=th.float).permute(0,3,1,2)
-    healthy_images = (healthy_images/127.5 - 1)
-    num_samples = healthy_images.shape[0]
-    healthy_images_batch = healthy_images.tensor_split(ceil(num_samples/args.batch_size))
+    if diseased_images is None:
+        diseased_images = np.load(args.diseased_images_path)['arr_0']
+        diseased_images = th.tensor(diseased_images, device=dist_util.dev()
+                                    ,dtype=th.float).permute(0,3,1,2)
+        diseased_images = (diseased_images/127.5 - 1)
+    num_samples = diseased_images.shape[0]
+    dieseased_images_batch = diseased_images.tensor_split(ceil(num_samples/args.batch_size))
     idx = 0
-    for healthy_images in healthy_images_batch:
+    for diseased_images in dieseased_images_batch:
         model_kwargs = {}
 
         sample_fn = diffusion.ddim_sample_loop
         noise = sample_fn(
             model, # We don't need condition here
-            healthy_images.shape,
+            diseased_images.shape,
             clip_denoised=args.clip_denoised,
             model_kwargs=model_kwargs,
             device=dist_util.dev(),
-            initial_cond=healthy_images,
+            initial_cond=diseased_images,
             reverse=True
         )
-        classes = th.ones(size=(healthy_images.shape[0],), device=dist_util.dev(),dtype=th.long) * 3 # This 3 is hardcoding healthy
+        classes = th.ones(size=(diseased_images.shape[0],), device=dist_util.dev(),dtype=th.long) * 3 # This 3 is hardcoding healthy
         print(f'Selected classes {classes.cpu().detach().numpy()}')
         model_kwargs["y"] = classes
 
 
         sample = sample_fn(
             model_fn,
-            healthy_images.shape,
+            diseased_images.shape,
             clip_denoised=args.clip_denoised,
             model_kwargs=model_kwargs,
             cond_fn=cond_fn,
@@ -126,6 +127,8 @@ def main():
 
     dist.barrier()
     logger.log("sampling complete")
+    
+    return arr
 
 
 def create_argparser():
@@ -149,4 +152,5 @@ def create_argparser():
 
 
 if __name__ == "__main__":
-    main()
+    args = create_argparser().parse_args()
+    main(args)
