@@ -1,10 +1,10 @@
 NUM_SAMPLES=10
 BATCH_SIZE=10
 MODEL_FLAGS="--image_size 128 --num_channels 128 --num_res_blocks 2"
-CLASSIFIER_FLAGS="--image_size 128 --classifier_attention_resolutions 16,8 --classifier_depth 2 --classifier_width 128 --classifier_pool attention --classifier_resblock_updown True --classifier_use_scale_shift_norm True"
+CLASSIFIER_FLAGS="--image_size 128 --classifier_attention_resolutions 32,16,8 --classifier_depth 2 --classifier_width 128 --classifier_pool attention --classifier_resblock_updown True --classifier_use_scale_shift_norm True"
 SAMPLE_FLAGS="--batch_size $BATCH_SIZE --num_samples $NUM_SAMPLES --timestep_respacing ddim25 --use_ddim True"
-SCORE_CKPT="checkpoints/score.pt"
-CLASSIFIER_CKPT="checkpoints/classifier.pt"
+SCORE_CKPT="checkpoints/score_best.pt"
+CLASSIFIER_CKPT="checkpoints_classifier/classifier_best.pt"
 SAVE_PATH="images/samples_${NUM_SAMPLES}x128x128x3.npz"
 # MODES -> 'resample','classifier-sample','classifer-train','image-train', 'comparison'
 mpiexec -n 1 python run_lib.py --mode comparison \
