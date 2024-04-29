@@ -95,15 +95,18 @@ def main(args, diseased_images=None):
         model_kwargs["y"] = classes
 
 
-        sample = sample_fn(
+        sample_dict = sample_fn(
             model_fn,
             diseased_images.shape,
             clip_denoised=args.clip_denoised,
             model_kwargs=model_kwargs,
             cond_fn=cond_fn,
             device=dist_util.dev(),
-            initial_cond=noise
+            initial_cond=noise,
+            return_dict=True
         )
+        sample = sample_dict["sample"]
+        accum_grads = sample_dict["norm_grad_cond"]
         sample = ((sample + 1) * 127.5).clamp(0, 255).to(th.uint8)
         sample = sample.permute(0, 2, 3, 1)
         sample = sample.contiguous()
@@ -128,7 +131,7 @@ def main(args, diseased_images=None):
     dist.barrier()
     logger.log("sampling complete")
     
-    return arr
+    return arr, accum_grads
 
 
 def create_argparser():

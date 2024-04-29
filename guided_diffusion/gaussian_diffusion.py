@@ -381,15 +381,17 @@ class GaussianDiffusion:
         alpha_bar = _extract_into_tensor(self.alphas_cumprod, t, x.shape)
 
         eps = self._predict_eps_from_xstart(x, t, p_mean_var["pred_xstart"])
-        eps = eps - (1 - alpha_bar).sqrt() * cond_fn(
+        cond_correction = cond_fn(
             x, self._scale_timesteps(t), **model_kwargs
         )
+        eps = eps - (1 - alpha_bar).sqrt() * cond_correction
 
         out = p_mean_var.copy()
         out["pred_xstart"] = self._predict_xstart_from_eps(x, t, eps)
         out["mean"], _, _ = self.q_posterior_mean_variance(
             x_start=out["pred_xstart"], x_t=x, t=t
         )
+        out["norm_grad_cond"] = th.sum(cond_correction**2,dim=1,keepdim=True).sqrt()
         return out
 
     def p_sample(
@@ -582,7 +584,7 @@ class GaussianDiffusion:
             (t != 0).float().view(-1, *([1] * (len(x.shape) - 1)))
         )  # no noise when t == 0
         sample = mean_pred + nonzero_mask * sigma * noise
-        return {"sample": sample, "pred_xstart": out["pred_xstart"]}
+        return {"sample": sample, "pred_xstart": out["pred_xstart"], "norm_grad_cond" : out["norm_grad_cond"]}
 
     def ddim_reverse_sample(
         self,
@@ -635,7 +637,8 @@ class GaussianDiffusion:
         device=None,
         progress=False,
         eta=0.0,
-        reverse=False
+        reverse=False,
+        return_dict=False
     ):
         """
         Generate samples from the model using DDIM.
@@ -657,6 +660,8 @@ class GaussianDiffusion:
             reverse=reverse
         ):
             final = sample
+        if return_dict:
+            return final
         return final["sample"]
 
     def ddim_sample_loop_progressive(
@@ -696,6 +701,7 @@ class GaussianDiffusion:
 
             indices = tqdm(indices)
         sample_fn = self.ddim_reverse_sample if reverse else self.ddim_sample
+        accum_norm_grads = 0
         for i in indices:
             t = th.tensor([i] * shape[0], device=device)
             with th.no_grad():
@@ -711,6 +717,9 @@ class GaussianDiffusion:
                 )
                 yield out
                 img = out["sample"]
+                if not reverse:
+                    out["norm_grad_cond"] += accum_norm_grads
+                    accum_norm_grads = out["norm_grad_cond"]
 
     def _vb_terms_bpd(
         self, model, x_start, x_t, t, clip_denoised=True, model_kwargs=None

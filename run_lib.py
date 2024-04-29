@@ -6,6 +6,7 @@ import scripts.resample_healthy
 import scripts.classifier_train_wandb
 import scripts.image_train
 import full_comparison
+import eval_guided_classification
 
 from guided_diffusion.script_util import (
     NUM_CLASSES,
@@ -31,11 +32,12 @@ def create_argparser():
     defaults.update(model_and_diffusion_defaults())
     defaults.update(classifier_defaults())
     parser = argparse.ArgumentParser()
-    parser.add_argument('--mode',type=str, choices=['resample','classifier-sample','classifer-train','image-train','comparison'])
+    parser.add_argument('--mode',type=str, choices=['resample','classifier-sample','classifer-train','image-train','comparison','eval-class'])
     parser.add_argument('--log_dir',type=str)
     parser.add_argument('--diseased_images_path',type=str)
     parser.add_argument('--healthy_images_file_name',type=str)
     parser.add_argument('--num_images',type=int)
+    parser.add_argument('--npz_file_name',type=str)
     add_dict_to_argparser(parser, defaults)
     return parser
 
@@ -52,6 +54,8 @@ def main():
         scripts.image_train.main(args)
     elif args.mode == 'comparison':
         full_comparison.main(args)
+    elif args.mode == 'eval-class':
+        eval_guided_classification.main(args)
 
 if __name__ == "__main__":
     main()

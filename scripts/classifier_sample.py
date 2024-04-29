@@ -101,7 +101,7 @@ def main(args):
     label_arr = label_arr[: args.num_samples]
     if dist.get_rank() == 0:
         shape_str = "x".join([str(x) for x in arr.shape])
-        out_path = os.path.join(logger.get_dir(), f"samples_{shape_str}.npz")
+        out_path = os.path.join(logger.get_dir(), f"{args.npz_file_name}.npz")
         logger.log(f"saving to {out_path}")
         np.savez(out_path, arr, label_arr)
 

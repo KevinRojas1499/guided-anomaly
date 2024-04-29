@@ -39,14 +39,16 @@ def from_img_to_numpy(args):
     images_path = args.diseased_images_path
     png_files = sorted([f for f in os.listdir(images_path) if f.endswith('.jpeg')])
     images = []
+    labels = []
     for file in png_files:
+        labels.append(file.split("-")[0])
         image_path = os.path.join(images_path, file)
         image = Image.open(image_path)
         images.append(np.array(image.convert('RGB').resize((128,128))))
         if len(images) == args.num_images:
             break
     np.savez(args.log_dir, images)
-    return np.array(images)
+    return np.array(images), labels
 
 def get_classifier(args):
     classifier = create_classifier(**args_to_dict(args, classifier_defaults().keys()))
@@ -61,7 +63,6 @@ def get_classifier(args):
     def cond_fn(x):
         logits = classifier(x, torch.zeros(x.shape[0], device=x.device))
         log_probs = F.log_softmax(logits, dim=-1)
-        print(log_probs.shape)
         return torch.argmax(log_probs,dim=-1)
 
     return cond_fn
@@ -75,15 +76,15 @@ def to_torch_im(images_healthy):
 
 def main(args):
     print(args)
-    images_diseased = from_img_to_numpy(args)
+    images_diseased, real_labels = from_img_to_numpy(args)
     images_diseased_torch = to_torch_im(images_diseased)
-    images_healthy = scripts.resample_healthy.main(args,images_diseased_torch)
+    images_healthy, accum_grads = scripts.resample_healthy.main(args,images_diseased_torch)
     # os.system('bash training_scripts/make_healthy.sh')
     # args.image_path = 'images/samples_healthy.npz'
     # images_ = np.load(args.image_path)
     # images_healthy = images_['arr_0']
     classifier = get_classifier(args)
-
+    accum_grads = accum_grads.permute((0,2,3,1))
     images_healthy_torch = to_torch_im(images_healthy)
     labels_healthy = classifier(images_healthy_torch).cpu().detach().numpy()
     labels_diseased = classifier(images_diseased_torch).cpu().detach().numpy()
@@ -93,8 +94,12 @@ def main(args):
     for i, (im_dis, im_he) in enumerate(zip(images_diseased, images_healthy)):
         fig, ax = plt.subplots(1,3)
         ax[0].imshow(im_dis)
-        ax[0].set_title(label_to_disease[labels_diseased[i]])
+        ax[0].set_title(f'{real_labels[i]} vs {label_to_disease[labels_diseased[i]]}')
         ax[1].imshow(im_he)
         ax[1].set_title(label_to_disease[labels_healthy[i]])
-        ax[2].imshow(im_he-im_dis)
+        dim = images_healthy.shape[-1]
+        x = np.linspace(0,1,dim,dim)
+        # xx,yy = np.meshgrid((x,x))
+        # ax[2].contourf(xx,yy,accum_grads[i])
+        ax[2].imshow(accum_grads[i].cpu().detach().numpy())
         fig.savefig(f'images/comparison/{i}.png')
