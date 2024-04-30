@@ -97,9 +97,5 @@ def main(args):
         ax[0].set_title(f'{real_labels[i]} vs {label_to_disease[labels_diseased[i]]}')
         ax[1].imshow(im_he)
         ax[1].set_title(label_to_disease[labels_healthy[i]])
-        dim = images_healthy.shape[-1]
-        x = np.linspace(0,1,dim,dim)
-        # xx,yy = np.meshgrid((x,x))
-        # ax[2].contourf(xx,yy,accum_grads[i])
         ax[2].imshow(accum_grads[i].cpu().detach().numpy())
         fig.savefig(f'images/comparison/{i}.png')

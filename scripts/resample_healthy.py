@@ -75,9 +75,9 @@ def main(args, diseased_images=None):
                                     ,dtype=th.float).permute(0,3,1,2)
         diseased_images = (diseased_images/127.5 - 1)
     num_samples = diseased_images.shape[0]
-    dieseased_images_batch = diseased_images.tensor_split(ceil(num_samples/args.batch_size))
+    diseased_images_batch = diseased_images.tensor_split(ceil(num_samples/args.batch_size))
     idx = 0
-    for diseased_images in dieseased_images_batch:
+    for diseased_images in diseased_images_batch:
         model_kwargs = {}
 
         sample_fn = diffusion.ddim_sample_loop

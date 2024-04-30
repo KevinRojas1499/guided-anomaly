@@ -70,7 +70,9 @@ def main(args):
     num_batches = ceil(generated_images.shape[0]/args.batch_size)
     batch_images = images_torch.tensor_split(num_batches)
     batch_labels = np.array_split(labels, num_batches)
+    correct = 0
     for im, real_labels in zip(batch_images, batch_labels):
         predicted_labels = classifier(im).cpu().detach().numpy()
-        accuracy = np.sum(((predicted_labels - real_labels) == 0 ))/len(real_labels)
-        print(accuracy)
+        correct += np.sum(((predicted_labels - real_labels) == 0 ))
+    print(correct/len(generated_images))
+    print(len(generated_images))

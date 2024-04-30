@@ -123,6 +123,7 @@ def create_argparser():
     defaults.update(classifier_defaults())
     parser = argparse.ArgumentParser()
     parser.add_argument('--log_dir',type=str)
+    parser.add_argument('--npz_file_name',type=str)
     add_dict_to_argparser(parser, defaults)
     return parser
 
