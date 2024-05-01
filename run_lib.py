@@ -38,6 +38,8 @@ def create_argparser():
     parser.add_argument('--healthy_images_file_name',type=str)
     parser.add_argument('--num_images',type=int)
     parser.add_argument('--npz_file_name',type=str)
+    parser.add_argument('--unconditional_model_path',type=str)
+    
     add_dict_to_argparser(parser, defaults)
     return parser
 

@@ -38,6 +38,16 @@ def main(args, diseased_images=None):
         dist_util.load_state_dict(args.model_path, map_location="cpu")
     )
     model.to(dist_util.dev())
+    args.class_cond = False
+    unconditional_model, diffusion = create_model_and_diffusion(
+        **args_to_dict(args, model_and_diffusion_defaults().keys())
+    )
+    unconditional_model.load_state_dict(
+        dist_util.load_state_dict(args.unconditional_model_path, map_location="cpu")
+    )
+    unconditional_model.to(dist_util.dev())
+    args.class_cond = True
+    
     if args.use_fp16:
         model.convert_to_fp16()
     model.eval()
@@ -68,7 +78,7 @@ def main(args, diseased_images=None):
     logger.log("sampling...")
     all_images = []
     all_labels = []
-    print(f' Numberr of classes {NUM_CLASSES}')
+    print(f'Number of classes {NUM_CLASSES}')
     if diseased_images is None:
         diseased_images = np.load(args.diseased_images_path)['arr_0']
         diseased_images = th.tensor(diseased_images, device=dist_util.dev()
@@ -76,13 +86,12 @@ def main(args, diseased_images=None):
         diseased_images = (diseased_images/127.5 - 1)
     num_samples = diseased_images.shape[0]
     diseased_images_batch = diseased_images.tensor_split(ceil(num_samples/args.batch_size))
-    idx = 0
     for diseased_images in diseased_images_batch:
         model_kwargs = {}
 
         sample_fn = diffusion.ddim_sample_loop
         noise = sample_fn(
-            model, # We don't need condition here
+            unconditional_model, # We don't need condition here
             diseased_images.shape,
             clip_denoised=args.clip_denoised,
             model_kwargs=model_kwargs,
@@ -148,6 +157,7 @@ def create_argparser():
     defaults.update(classifier_defaults())
     parser = argparse.ArgumentParser()
     parser.add_argument('--log_dir',type=str)
+    parser.add_argument('--unconditional_model_path',type=str)
     parser.add_argument('--diseased_images_path',type=str)
     parser.add_argument('--healthy_images_file_name',type=str)
     add_dict_to_argparser(parser, defaults)

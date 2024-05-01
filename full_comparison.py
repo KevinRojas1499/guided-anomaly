@@ -91,6 +91,7 @@ def main(args):
 
     print(labels_healthy)
     print(labels_diseased)
+    print(images_diseased.shape, images_healthy.shape, accum_grads.shape)
     for i, (im_dis, im_he) in enumerate(zip(images_diseased, images_healthy)):
         fig, ax = plt.subplots(1,3)
         ax[0].imshow(im_dis)
@@ -98,4 +99,6 @@ def main(args):
         ax[1].imshow(im_he)
         ax[1].set_title(label_to_disease[labels_healthy[i]])
         ax[2].imshow(accum_grads[i].cpu().detach().numpy())
+        # ax[2].imshow(im_dis-im_he)
+        
         fig.savefig(f'images/comparison/{i}.png')
